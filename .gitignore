@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Internal feedback artifacts (Kerry-Ann's mobile screenshots, dev notes)
+feedback/
+
+# Source PDFs from client (not used by the site itself)
+assets/docs/
+
+# Heavy media not currently used by the site
+assets/photos/testimony-video.mp4
