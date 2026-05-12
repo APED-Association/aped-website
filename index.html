@@ -3,8 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>APED Association — Building Hope in Togo</title>
+<title>APED Association — Building Hope in Rural Togo</title>
+
+<!-- SEO -->
+<meta name="description" content="APED Association is a Togolese nonprofit building healthcare, education, vocational training, and women's empowerment programs in the Avé Prefecture. Support the Kpotamé Rural Health Center for Women & Children.">
+<meta name="keywords" content="APED Association, Togo nonprofit, Kpotamé health center, rural healthcare Togo, Avé Prefecture, maternal health, children's education, women's empowerment, Togolese NGO, donate Togo healthcare">
+<meta name="author" content="APED Association">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://kag-richards.github.io/aped-website/">
+
+<!-- Open Graph (LinkedIn, Facebook, WhatsApp, Slack link previews) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="APED Association">
+<meta property="og:title" content="APED Association — Building Hope in Rural Togo">
+<meta property="og:description" content="A Togolese nonprofit building healthcare, education, and women's empowerment in the Avé Prefecture. Help us build the Kpotamé Rural Health Center for Women & Children.">
+<meta property="og:url" content="https://kag-richards.github.io/aped-website/">
+<meta property="og:image" content="https://kag-richards.github.io/aped-website/assets/brand/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="APED Association — construction site for the Kpotamé Rural Health Center in Togo">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="APED Association — Building Hope in Rural Togo">
+<meta name="twitter:description" content="A Togolese nonprofit building healthcare, education, and women's empowerment in the Avé Prefecture.">
+<meta name="twitter:image" content="https://kag-richards.github.io/aped-website/assets/brand/og-card.jpg">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/brand/apple-touch-icon.png">
+<link rel="shortcut icon" href="assets/brand/favicon-32.png">
+
+<!-- Theme color for mobile address bar -->
+<meta name="theme-color" content="#1A3A6B">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -122,8 +157,8 @@
     position: relative; min-height: 240px;
   }
   .hero-img-top::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 90% 90%, rgba(26,58,107,0.72) 0%, transparent 55%); pointer-events: none; }
-  .hero-img-top { background-image: url('assets/photos/pediatric-consultation.jpg'); }
-  .hero-img-bottom { background-image: url('assets/photos/construction-site.jpg'); }
+  .hero-img-top { background-image: url('assets/photos/pediatric-consultation.webp'); }
+  .hero-img-bottom { background-image: url('assets/photos/construction-site.webp'); }
   .hero-img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,58,107,0.3) 0%, transparent 60%); }
   .hero-caption {
     position: absolute; bottom: 16px; left: 16px;
@@ -194,10 +229,10 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border-radius: var(--radius-lg); overflow: hidden;
   }
   .story-img-cell { aspect-ratio: 4/3; background-size: cover; background-position: center; border-radius: var(--radius); }
-  .story-img-1 { background-image: url('assets/photos/sewing-apprentice.jpg'); }
-  .story-img-2 { background-image: url('assets/photos/children-school.jpg'); }
-  .story-img-3 { background-image: url('assets/photos/hair-salon.jpg'); }
-  .story-img-4 { background-image: url('assets/photos/school-field.jpg'); }
+  .story-img-1 { background-image: url('assets/photos/sewing-apprentice.webp'); }
+  .story-img-2 { background-image: url('assets/photos/children-school.webp'); }
+  .story-img-3 { background-image: url('assets/photos/hair-salon.webp'); }
+  .story-img-4 { background-image: url('assets/photos/school-field.webp'); }
   .story-text .section-title { color: var(--white); }
   .story-text .section-sub { color: rgba(255,255,255,0.65); max-width: 100%; }
   .story-quote {
@@ -224,7 +259,7 @@
   .spotlight-visual { position: relative; }
   .spotlight-photo {
     width: 100%; aspect-ratio: 4/3; border-radius: var(--radius-lg);
-    background: url('assets/photos/construction-site.jpg') center/cover;
+    background: url('assets/photos/construction-site.webp') center/cover;
     position: relative;
   }
   .progress-card {
@@ -481,7 +516,7 @@
   .page-indicator span { font-size: 12px; color: var(--gray-300); }
 
   /* ─── ABOUT HERO IMAGE BINDING ─── */
-  #about-hero-img { background-image: url('assets/photos/community-1.jpg'); }
+  #about-hero-img { background-image: url('assets/photos/community-1.webp'); }
 
   /* ─── TEAM SECTION ─── */
   .team-section { padding: 96px 80px; background: var(--off-white); }
@@ -503,7 +538,7 @@
   /* ─── IMPACT REPORT PAGE ─── */
   .impact-report-hero {
     background: var(--blue); padding: 96px 80px; color: var(--white);
-    background-image: linear-gradient(135deg, rgba(26,58,107,0.92), rgba(13,140,106,0.85)), url('assets/photos/children-school.jpg');
+    background-image: linear-gradient(135deg, rgba(26,58,107,0.92), rgba(13,140,106,0.85)), url('assets/photos/children-school.webp');
     background-size: cover; background-position: center;
   }
   .impact-report-hero h1 { font-family: var(--serif); font-size: 52px; max-width: 760px; margin: 16px 0 20px; line-height: 1.1; }
@@ -582,7 +617,7 @@
   .strategic-priority li::before { content: '◆'; position: absolute; left: 0; color: var(--yellow); }
   .sp-image {
     border-radius: var(--radius-lg); aspect-ratio: 4/3;
-    background: url('assets/photos/construction-site.jpg') center/cover;
+    background: url('assets/photos/construction-site.webp') center/cover;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
   }
   .outlook { padding: 96px 80px; background: var(--white); }
@@ -695,7 +730,7 @@
 <!-- NAV -->
 <nav>
   <a class="nav-logo" href="#" onclick="showPage('home')">
-    <img class="nav-logo-img" src="assets/brand/logo-aped.png" alt="APED Association">
+    <img class="nav-logo-img" width="48" height="48" loading="eager" decoding="async" src="assets/brand/logo-aped.png" alt="APED Association">
     <div>
       <div class="nav-logo-text">APED</div>
       <div class="nav-logo-sub">Association — Togo</div>
@@ -940,32 +975,32 @@
     </div>
     <div class="team-grid">
       <div class="team-card">
-        <img class="team-photo" src="assets/team/kokou-delali.jpg" alt="Kokou Delali">
+        <img class="team-photo" width="140" height="140" loading="lazy" decoding="async" src="assets/team/kokou-delali.webp" alt="Kokou Delali">
         <div class="team-name">Kokou Delali</div>
         <div class="team-role">Executive Director</div>
       </div>
       <div class="team-card">
-        <img class="team-photo" src="assets/team/symphorien.jpg" alt="Dougbe Symphorien">
+        <img class="team-photo" width="140" height="140" loading="lazy" decoding="async" src="assets/team/symphorien.webp" alt="Dougbe Symphorien">
         <div class="team-name">Dougbe Symphorien</div>
         <div class="team-role">Chairman, Board of Directors</div>
       </div>
       <div class="team-card">
-        <img class="team-photo" src="assets/team/senyo.jpg" alt="Etsè Kossivi Senyo">
+        <img class="team-photo" width="140" height="140" loading="lazy" decoding="async" src="assets/team/senyo.webp" alt="Etsè Kossivi Senyo">
         <div class="team-name">Etsè Kossivi Senyo</div>
         <div class="team-role">Program Officer</div>
       </div>
       <div class="team-card">
-        <img class="team-photo" src="assets/team/odile.jpg" alt="Yawa Odile">
+        <img class="team-photo" width="140" height="140" loading="lazy" decoding="async" src="assets/team/odile.webp" alt="Yawa Odile">
         <div class="team-name">Yawa Odile</div>
         <div class="team-role">Head of Women's Empowerment &amp; Gender Equality</div>
       </div>
       <div class="team-card">
-        <img class="team-photo" src="assets/team/anti.jpg" alt="Anti Elisabeth">
+        <img class="team-photo" width="140" height="140" loading="lazy" decoding="async" src="assets/team/anti.webp" alt="Anti Elisabeth">
         <div class="team-name">Anti Elisabeth</div>
         <div class="team-role">Treasurer</div>
       </div>
       <div class="team-card">
-        <img class="team-photo" src="assets/team/junior.jpg" alt="Rodrigue Junior">
+        <img class="team-photo" width="140" height="140" loading="lazy" decoding="async" src="assets/team/junior.webp" alt="Rodrigue Junior">
         <div class="team-name">Rodrigue Junior</div>
         <div class="team-role">Community Health, Water, Hygiene &amp; Sanitation</div>
       </div>
@@ -1469,6 +1504,15 @@
 </div>
 
 <script>
+const pageTitles = {
+  home:    'APED Association — Building Hope in Rural Togo',
+  about:   'About APED — Our Mission, Team, and Story',
+  impact:  'Impact Report 2023–2025 — APED Association',
+  project: 'Kpotamé Rural Health Center — APED Association',
+  involve: 'Get Involved — Volunteer or Partner with APED',
+  contact: 'Contact APED Association',
+  donate:  'Donate — Help Build the Kpotamé Health Center'
+};
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById('page-' + id).classList.add('active');
@@ -1476,6 +1520,7 @@ function showPage(id) {
   const navEl = document.getElementById('nav-' + id);
   if (navEl) navEl.classList.add('active');
   document.querySelector('nav').classList.remove('nav-open');
+  if (pageTitles[id]) document.title = pageTitles[id];
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function toggleNav() {
