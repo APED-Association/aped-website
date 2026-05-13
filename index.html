@@ -1478,8 +1478,11 @@
         <label style="font-size:13px;color:var(--gray-500);display:block;margin-bottom:8px">Or enter a custom amount</label>
         <input class="custom-input" type="text" placeholder="$ Custom amount">
       </div>
-      <div style="margin-top:40px;padding:24px;background:var(--off-white);border-radius:var(--radius-lg)">
-        <p style="font-size:14px;color:var(--gray-700);line-height:1.7"><strong style="color:var(--blue)">Your partnership matters beyond the gift.</strong> As a donor, you'll receive quarterly photo and video updates showing real progress — and real human stories — from Kpotamé. You become part of the founding story of this community's health center.</p>
+      <div style="margin-top:24px;padding:18px 22px;background:var(--blue-light);border-radius:var(--radius);border-left:3px solid var(--blue);">
+        <p style="font-size:14px;color:var(--blue);line-height:1.6"><strong>Prefer to send a wire transfer?</strong> Email us at <a href="mailto:apedassoc@gmail.com" style="color:inherit;text-decoration:underline;font-weight:600">apedassoc@gmail.com</a> and we'll send banking details directly.</p>
+      </div>
+      <div style="margin-top:24px;padding:24px;background:var(--off-white);border-radius:var(--radius-lg)">
+        <p style="font-size:14px;color:var(--gray-700);line-height:1.7"><strong style="color:var(--blue)">Your partnership matters beyond the gift.</strong> As a donor, you'll receive quarterly photo and video updates showing real progress and real human stories from Kpotamé. You become part of the founding story of this community's health center.</p>
       </div>
     </div>
     <div class="donate-sidebar">
@@ -1503,6 +1506,26 @@
   <footer style="background:var(--gray-900);padding:40px 80px"><div class="footer-bottom" style="border:none;padding:0"><p>© 2026 APED Association. All rights reserved.</p><a href="#" onclick="showPage('home')" style="color:rgba(255,255,255,0.35);font-size:13px;text-decoration:none">← Back to Home</a></div></footer>
 </div>
 
+<!-- ════════════════════════════ THANKS (post-newsletter-signup confirmation) ════════════════════════════ -->
+<div id="page-thanks" class="page">
+  <div style="background:var(--off-white);min-height:70vh;display:flex;align-items:center;justify-content:center;padding:96px 24px;">
+    <div style="max-width:640px;text-align:center;">
+      <div style="width:80px;height:80px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;margin:0 auto 32px;font-size:36px;">✓</div>
+      <div class="section-label" style="color:var(--teal);">Welcome to APED</div>
+      <h1 style="font-family:var(--serif);font-size:clamp(32px,4vw,48px);color:var(--blue);margin:16px 0 24px;line-height:1.15;">Thank you for joining the APED community.</h1>
+      <p style="font-size:18px;color:var(--gray-700);line-height:1.7;margin-bottom:16px;">A welcome email is on its way to your inbox. You should see it within the next few minutes.</p>
+      <div style="margin-top:32px;padding:24px 28px;background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);text-align:left;">
+        <p style="font-size:15px;color:var(--gray-700);line-height:1.7;"><strong style="color:var(--blue);">Don't see it?</strong> Check your spam or promotions folder. If you find our welcome email there, mark it as <strong>"not spam"</strong> (or drag it into your primary inbox) so future updates from APED come through clearly.</p>
+      </div>
+      <div style="margin-top:48px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="#" onclick="showPage('home');return false;" class="btn-primary" style="background:var(--blue);color:var(--white);">Return to Home</a>
+        <a href="#" onclick="showPage('impact');return false;" class="btn-outline" style="color:var(--blue);border-color:var(--blue);">See Our Impact</a>
+      </div>
+    </div>
+  </div>
+  <footer style="background:var(--gray-900);padding:40px 80px"><div class="footer-bottom" style="border:none;padding:0"><p>© 2026 APED Association. All rights reserved.</p><a href="#" onclick="showPage('home')" style="color:rgba(255,255,255,0.35);font-size:13px;text-decoration:none">← Back to Home</a></div></footer>
+</div>
+
 <script>
 const pageTitles = {
   home:    'APED Association — Building Hope in Rural Togo',
@@ -1511,16 +1534,20 @@ const pageTitles = {
   project: 'Kpotamé Rural Health Center — APED Association',
   involve: 'Get Involved — Volunteer or Partner with APED',
   contact: 'Contact APED Association',
-  donate:  'Donate — Help Build the Kpotamé Health Center'
+  donate:  'Donate — Help Build the Kpotamé Health Center',
+  thanks:  'Welcome to APED — Check Your Inbox'
 };
 function showPage(id) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+  const target = document.getElementById('page-' + id);
+  if (!target) return;
+  target.classList.add('active');
   document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
   const navEl = document.getElementById('nav-' + id);
   if (navEl) navEl.classList.add('active');
   document.querySelector('nav').classList.remove('nav-open');
   if (pageTitles[id]) document.title = pageTitles[id];
+  if (history.replaceState) history.replaceState(null, '', '#' + id);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function toggleNav() {
@@ -1536,6 +1563,23 @@ function setFreq(btn) {
   document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
 }
+
+// Hash routing: if the URL has a hash like #thanks or #about on load, route to that page
+(function routeFromHash() {
+  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+  if (hash && pageTitles[hash]) {
+    showPage(hash);
+  }
+})();
+// Also respond to back/forward navigation
+window.addEventListener('hashchange', function () {
+  const hash = (window.location.hash || '').replace('#', '').toLowerCase();
+  if (hash && pageTitles[hash]) {
+    showPage(hash);
+  } else if (!hash) {
+    showPage('home');
+  }
+});
 </script>
 
 
