@@ -746,6 +746,7 @@
     <a href="#" onclick="showPage('project')" id="nav-project">Our Project</a>
     <a href="#" onclick="showPage('involve')" id="nav-involve">Get Involved</a>
     <a href="#" onclick="showPage('contact')" id="nav-contact">Contact</a>
+    <a href="#" onclick="showPage('news')" id="nav-news">News</a>
     <a href="#" onclick="showPage('donate')" class="nav-cta">Donate Now</a>
   </div>
 </nav>
@@ -759,7 +760,7 @@
     <div class="hero-left">
       <div class="hero-badge">Est. 1998 · Avé Prefecture, Togo</div>
       <h1>Every child deserves a <em>chance</em> to thrive.</h1>
-      <p class="hero-sub">Become the partner who changes what's possible. In the Avé Prefecture of Togo, 18,000 people are waiting for their first health center. Education is within reach. Girls are ready to lead. All that's missing is you.</p>
+      <p class="hero-sub" id="cms-hero-sub">Become the partner who changes what's possible. In the Avé Prefecture of Togo, 18,000 people are waiting for their first health center. Education is within reach. Girls are ready to lead. All that's missing is you.</p>
       <div class="hero-actions">
         <a href="#" onclick="showPage('donate')" class="btn-primary">Become a Partner</a>
         <a href="#" onclick="showPage('about')" class="btn-outline">Our Story</a>
@@ -942,7 +943,7 @@
   <div class="about-body">
     <div class="section-label">Our Mission</div>
     <div class="section-title">Simple, urgent, and unwavering</div>
-    <p class="section-sub" style="margin-top:20px">To support underprivileged children by giving them access to education and essential healthcare. To walk alongside vulnerable communities — providing prevention, awareness, and access to basic health services. To stand with girls and young women so they can improve their living conditions, find their place in society, and move forward with dignity, strength and hope.</p>
+    <p class="section-sub" id="cms-mission" style="margin-top:20px">To support underprivileged children by giving them access to education and essential healthcare. To walk alongside vulnerable communities — providing prevention, awareness, and access to basic health services. To stand with girls and young women so they can improve their living conditions, find their place in society, and move forward with dignity, strength and hope.</p>
 
     <div class="values-grid">
       <div class="value-card">
@@ -1553,6 +1554,15 @@
   <footer style="background:var(--gray-900);padding:40px 80px"><div class="footer-bottom" style="border:none;padding:0"><p>© 2026 APED Association. All rights reserved.</p><a href="#" onclick="showPage('home')" style="color:rgba(255,255,255,0.35);font-size:13px;text-decoration:none">← Back to Home</a></div></footer>
 </div>
 
+<!-- ════════════════════════════ NEWS ════════════════════════════ -->
+<div id="page-news" class="page">
+  <div class="about-body">
+    <div class="section-label">News</div>
+    <div class="section-title">Latest from APED</div>
+    <div id="news-list" class="news-list" style="margin-top:32px;"><p class="section-sub">Loading news…</p></div>
+  </div>
+</div>
+
 <script>
 const pageTitles = {
   home:    'APED Association — Building Hope in Rural Togo',
@@ -1562,6 +1572,7 @@ const pageTitles = {
   involve: 'Get Involved — Volunteer or Partner with APED',
   contact: 'Contact APED Association',
   donate:  'Donate — Help Build the Kpotamé Health Center',
+  news:    'News — APED Association',
   thanks:  'Welcome to APED — Check Your Inbox'
 };
 function showPage(id) {
@@ -1611,5 +1622,7 @@ window.addEventListener('hashchange', function () {
 
 <!-- GHL form embed loader (powers the newsletter signup iframes above) -->
 <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+<!-- CMS content loader: renders Team, News, and editable copy from content/*.json -->
+<script src="assets/cms-loader.js" defer></script>
 </body>
 </html>

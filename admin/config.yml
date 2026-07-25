@@ -1,0 +1,59 @@
+# Sveltia CMS — APED website content editor.
+# Editors go to /admin, log in with GitHub, and changes commit to this repo,
+# which republishes the site automatically (~1 minute).
+#
+# IMPORTANT: after the repo is transferred to APED's GitHub org, change `repo:`
+# below to <org>/aped-website (e.g. aped-association/aped-website).
+
+backend:
+  name: github
+  repo: kag-richards/aped-website
+  branch: main
+
+site_url: https://apedassociation.org
+media_folder: assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: news
+    label: 'News / Blog'
+    files:
+      - name: posts
+        label: Posts
+        file: content/blog.json
+        fields:
+          - name: posts
+            label: Posts
+            widget: list
+            summary: '{{fields.title}} — {{fields.date}}'
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: date, label: Date, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false, format: 'YYYY-MM-DD' }
+              - { name: thumbnail, label: Photo, widget: image, required: false }
+              - { name: body, label: Body, widget: markdown }
+
+  - name: team
+    label: 'Leadership Team'
+    files:
+      - name: members
+        label: 'Team Members'
+        file: content/team.json
+        fields:
+          - name: members
+            label: Members
+            widget: list
+            summary: '{{fields.name}} — {{fields.role}}'
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: role, label: 'Role / Title', widget: string }
+              - { name: photo, label: Photo, widget: image, required: false }
+
+  - name: site
+    label: 'Homepage Copy'
+    files:
+      - name: copy
+        label: 'Hero & Mission'
+        file: content/site-copy.json
+        fields:
+          - { name: hero_subtext, label: 'Hero paragraph (under the headline)', widget: text }
+          - { name: mission, label: 'Mission statement', widget: text }
