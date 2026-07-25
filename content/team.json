@@ -1,10 +1,10 @@
 {
   "members": [
-    { "name": "Kokou Delali", "role": "Executive Director", "photo": "assets/team/kokou-delali.webp" },
-    { "name": "Dougbe Symphorien", "role": "Chairman, Board of Directors", "photo": "assets/team/symphorien.webp" },
-    { "name": "Etsè Kossivi Senyo", "role": "Program Officer", "photo": "assets/team/senyo.webp" },
-    { "name": "Yawa Odile", "role": "Head of Women's Empowerment & Gender Equality", "photo": "assets/team/odile.webp" },
-    { "name": "Anti Elisabeth", "role": "Treasurer", "photo": "assets/team/anti.webp" },
-    { "name": "Rodrigue Junior", "role": "Community Health, Water, Hygiene & Sanitation", "photo": "assets/team/junior.webp" }
+    { "name": "Kokou Delali", "role": "Executive Director", "photo": "/assets/team/kokou-delali.webp" },
+    { "name": "Dougbe Symphorien", "role": "Chairman, Board of Directors", "photo": "/assets/team/symphorien.webp" },
+    { "name": "Etsè Kossivi Senyo", "role": "Program Officer", "photo": "/assets/team/senyo.webp" },
+    { "name": "Yawa Odile", "role": "Head of Women's Empowerment & Gender Equality", "photo": "/assets/team/odile.webp" },
+    { "name": "Anti Elisabeth", "role": "Treasurer", "photo": "/assets/team/anti.webp" },
+    { "name": "Rodrigue Junior", "role": "Community Health, Water, Hygiene & Sanitation", "photo": "/assets/team/junior.webp" }
   ]
 }

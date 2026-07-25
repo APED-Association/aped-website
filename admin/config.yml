@@ -2,17 +2,16 @@
 # Editors go to /admin, log in with GitHub, and changes commit to this repo,
 # which republishes the site automatically (~1 minute).
 #
-# IMPORTANT: after the repo is transferred to APED's GitHub org, change `repo:`
-# below to <org>/aped-website (e.g. aped-association/aped-website).
+# Repo is owned by APED's GitHub org (transferred 2026-07-25).
 
 backend:
   name: github
-  repo: kag-richards/aped-website
+  repo: APED-Association/aped-website
   branch: main
 
 site_url: https://apedassociation.org
-media_folder: assets/uploads
-public_folder: /assets/uploads
+media_folder: assets
+public_folder: /assets
 
 collections:
   - name: news
@@ -29,7 +28,7 @@ collections:
             fields:
               - { name: title, label: Title, widget: string }
               - { name: date, label: Date, widget: datetime, date_format: 'YYYY-MM-DD', time_format: false, format: 'YYYY-MM-DD' }
-              - { name: thumbnail, label: Photo, widget: image, required: false }
+              - { name: thumbnail, label: Photo, widget: image, required: false, media_folder: '/assets/uploads', public_folder: '/assets/uploads' }
               - { name: body, label: Body, widget: markdown }
 
   - name: team
@@ -46,7 +45,7 @@ collections:
             fields:
               - { name: name, label: Name, widget: string }
               - { name: role, label: 'Role / Title', widget: string }
-              - { name: photo, label: Photo, widget: image, required: false }
+              - { name: photo, label: Photo, widget: image, required: false, media_folder: '/assets/team', public_folder: '/assets/team' }
 
   - name: site
     label: 'Homepage Copy'
