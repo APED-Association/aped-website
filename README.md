@@ -1,2 +1,2 @@
 # aped-website
-DraftClicks.com demo site for APED Association
+Official website of APED Association (Association pour l'Appui à la Promotion des Enfants Déshérités).
