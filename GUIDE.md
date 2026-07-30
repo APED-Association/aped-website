@@ -7,6 +7,8 @@ Un guide simple pour mettre à jour le contenu de votre site. Aucun code requis.
 
 ## English
 
+Your website is fully yours now. This short guide shows you how to update it yourselves, your news, your team, your photos, and your words, with no code and no developer. Every change you save goes live in about a minute.
+
 **1. Open the editor.** Go to **apedassociation.org/admin**.
 
 **2. Sign in.** The first time only, enter your access token (Senyo sets this up once). After that, the site remembers you.
@@ -26,6 +28,8 @@ Un guide simple pour mettre à jour le contenu de votre site. Aucun code requis.
 ---
 
 ## Français
+
+Votre site web vous appartient entièrement désormais. Ce petit guide vous montre comment le mettre à jour vous-mêmes : vos actualités, votre équipe, vos photos et vos textes, sans code et sans développeur. Chaque changement enregistré est en ligne en une minute environ.
 
 **1. Ouvrez l'éditeur.** Allez sur **apedassociation.org/admin**.
 
