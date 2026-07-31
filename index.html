@@ -1615,6 +1615,12 @@ function goDonate() {
   window.open(url, '_blank', 'noopener');
 }
 
+// Prevent placeholder href="#" links from jumping the hash back to empty (which bounced nav to home)
+document.addEventListener('click', function (e) {
+  var a = e.target.closest ? e.target.closest('a[href="#"]') : null;
+  if (a) e.preventDefault();
+});
+
 // Hash routing: if the URL has a hash like #thanks or #about on load, route to that page
 (function routeFromHash() {
   const hash = (window.location.hash || '').replace('#', '').toLowerCase();
