@@ -10,6 +10,7 @@ backend:
   branch: main
 
 site_url: https://apedassociation.org
+logo_url: /assets/brand/logo-aped.png
 media_folder: assets
 public_folder: /assets
 
