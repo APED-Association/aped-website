@@ -1404,31 +1404,37 @@
     <div class="section-label" style="color:rgba(245,194,0,0.85)">Volunteer Application</div>
     <div class="section-title" style="color:var(--white);max-width:600px">Join our communication & donor engagement team</div>
     <p class="section-sub" style="color:rgba(255,255,255,0.6);max-width:540px;margin-top:12px">Ideal for anyone passionate about nonprofit development, storytelling, and international outreach. A letter of recommendation is provided upon completion.</p>
-    <div class="form-grid">
-      <div class="form-field"><label>First Name</label><input type="text" placeholder="Kofi"></div>
-      <div class="form-field"><label>Last Name</label><input type="text" placeholder="Mensah"></div>
-      <div class="form-field"><label>Email Address</label><input type="email" placeholder="your@email.com"></div>
-      <div class="form-field"><label>Country / Location</label><input type="text" placeholder="Paris, France"></div>
-      <div class="form-field"><label>Area of Interest</label>
-        <select>
-          <option>Donor Communication Systems</option>
-          <option>LinkedIn Content Strategy</option>
-          <option>Individual Donor Campaigns</option>
-          <option>International Outreach</option>
-          <option>Translation (French / English)</option>
-          <option>Other</option>
-        </select>
+    <form action="https://formsubmit.co/apedassoc@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Volunteer Application — APED Website">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://apedassociation.org/#thanks">
+      <div class="form-grid">
+        <div class="form-field"><label>First Name</label><input type="text" name="First Name" placeholder="Kofi" required></div>
+        <div class="form-field"><label>Last Name</label><input type="text" name="Last Name" placeholder="Mensah" required></div>
+        <div class="form-field"><label>Email Address</label><input type="email" name="Email" placeholder="your@email.com" required></div>
+        <div class="form-field"><label>Country / Location</label><input type="text" name="Country / Location" placeholder="Paris, France"></div>
+        <div class="form-field"><label>Area of Interest</label>
+          <select name="Area of Interest">
+            <option>Donor Communication Systems</option>
+            <option>LinkedIn Content Strategy</option>
+            <option>Individual Donor Campaigns</option>
+            <option>International Outreach</option>
+            <option>Translation (French / English)</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-field"><label>Availability</label>
+          <select name="Availability">
+            <option>3 months</option>
+            <option>6 months</option>
+            <option>Ongoing / flexible</option>
+          </select>
+        </div>
+        <div class="form-field full"><label>Motivation Letter (brief)</label><textarea name="Motivation Letter" placeholder="Tell us why you want to contribute to APED's mission..."></textarea></div>
       </div>
-      <div class="form-field"><label>Availability</label>
-        <select>
-          <option>3 months</option>
-          <option>6 months</option>
-          <option>Ongoing / flexible</option>
-        </select>
-      </div>
-      <div class="form-field full"><label>Motivation Letter (brief)</label><textarea placeholder="Tell us why you want to contribute to APED's mission..."></textarea></div>
-    </div>
-    <button class="btn-primary" style="margin-top:8px">Submit Application</button>
+      <button class="btn-primary" type="submit" style="margin-top:8px">Submit Application</button>
+    </form>
   </div>
   <footer style="background:var(--gray-900);padding:40px 80px"><div class="footer-bottom" style="border:none;padding:0"><p>© 2026 APED Association. All rights reserved.</p><a href="#" onclick="showPage('home')" style="color:rgba(255,255,255,0.35);font-size:13px;text-decoration:none">← Back to Home</a></div></footer>
 </div>
@@ -1463,17 +1469,24 @@
     </div>
     <div class="contact-form-panel">
       <h3>Send us a message</h3>
-      <div class="light-field"><label>Your Name</label><input type="text" placeholder="Full name"></div>
-      <div class="light-field"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+      <form action="https://formsubmit.co/apedassoc@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Contact Message — APED Website">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://apedassociation.org/#thanks">
+      <div class="light-field"><label>Your Name</label><input type="text" name="Name" placeholder="Full name" required></div>
+      <div class="light-field"><label>Email</label><input type="email" name="Email" placeholder="your@email.com" required></div>
       <div class="light-field"><label>I am a...</label></div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;margin:-4px 0 16px">
-        <button style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--blue);color:var(--white);font-size:13px;cursor:pointer;font-family:var(--sans)">Potential Donor</button>
-        <button style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-700);font-size:13px;cursor:pointer;font-family:var(--sans)">Partner Org</button>
-        <button style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-700);font-size:13px;cursor:pointer;font-family:var(--sans)">Volunteer</button>
-        <button style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-700);font-size:13px;cursor:pointer;font-family:var(--sans)">Media</button>
+        <button type="button" onclick="document.getElementById('contact-role').value='Potential Donor';document.querySelectorAll('.role-chip').forEach(c=>{c.style.background='var(--white)';c.style.color='var(--gray-700)'});this.style.background='var(--blue)';this.style.color='var(--white)'" class="role-chip" style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--blue);color:var(--white);font-size:13px;cursor:pointer;font-family:var(--sans)">Potential Donor</button>
+        <button type="button" onclick="document.getElementById('contact-role').value='Partner Org';document.querySelectorAll('.role-chip').forEach(c=>{c.style.background='var(--white)';c.style.color='var(--gray-700)'});this.style.background='var(--blue)';this.style.color='var(--white)'" class="role-chip" style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-700);font-size:13px;cursor:pointer;font-family:var(--sans)">Partner Org</button>
+        <button type="button" onclick="document.getElementById('contact-role').value='Volunteer';document.querySelectorAll('.role-chip').forEach(c=>{c.style.background='var(--white)';c.style.color='var(--gray-700)'});this.style.background='var(--blue)';this.style.color='var(--white)'" class="role-chip" style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-700);font-size:13px;cursor:pointer;font-family:var(--sans)">Volunteer</button>
+        <button type="button" onclick="document.getElementById('contact-role').value='Media';document.querySelectorAll('.role-chip').forEach(c=>{c.style.background='var(--white)';c.style.color='var(--gray-700)'});this.style.background='var(--blue)';this.style.color='var(--white)'" class="role-chip" style="padding:8px 16px;border-radius:100px;border:1px solid var(--gray-100);background:var(--white);color:var(--gray-700);font-size:13px;cursor:pointer;font-family:var(--sans)">Media</button>
       </div>
-      <div class="light-field"><label>Message</label><textarea placeholder="How can we help you, or how would you like to help us?"></textarea></div>
-      <button class="btn-primary" style="width:100%;text-align:center;display:block">Send Message</button>
+      <input type="hidden" name="I am a" id="contact-role" value="Potential Donor">
+      <div class="light-field"><label>Message</label><textarea name="Message" placeholder="How can we help you, or how would you like to help us?" required></textarea></div>
+      <button class="btn-primary" type="submit" style="width:100%;text-align:center;display:block">Send Message</button>
+      </form>
     </div>
   </div>
   <footer style="background:var(--gray-900);padding:40px 80px"><div class="footer-bottom" style="border:none;padding:0"><p>© 2026 APED Association. All rights reserved.</p><a href="#" onclick="showPage('home')" style="color:rgba(255,255,255,0.35);font-size:13px;text-decoration:none">← Back to Home</a></div></footer>
