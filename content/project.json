@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "label": "Flagship Initiative",
+    "title": "Rural Health Center for Women & Children — Kpotamé, Assahoun",
+    "text": "Serving 17 villages and over 18,000 people who currently travel up to 40 km for basic medical care. A community that is not waiting — they are building, with you.",
+    "funding_title": "Foundation Phase Campaign"
+  },
+  "roadmap": {
+    "label": "Project Roadmap",
+    "title": "From cleared ground to open doors",
+    "text": "Four phases, built on transparency. Each quarter, donors receive photo and video updates — real progress, real stories.",
+    "phases": [
+      { "title": "Site Preparation & Foundation", "text": "The community of Kpotamé contributed their own land and labor. Site clearing is complete. This phase raises $180,000 to lay the foundation — the literal groundwork for everything that follows.", "status": "active", "status_text": "▶ Currently Active — Foundation Campaign" },
+      { "title": "Structure & Roofing", "text": "Walls rise and roofing is completed, creating the physical space for clinical operations. Timeline contingent on reaching the Phase 1 funding milestone.", "status": "pending", "status_text": "Upcoming" },
+      { "title": "Medical Equipment & Staffing", "text": "Examination tables, diagnostic tools, maternity ward equipment, and the recruitment of trained healthcare professionals — in partnership with Togo's Ministry of Health.", "status": "pending", "status_text": "Upcoming" },
+      { "title": "Inauguration & Sustained Operations", "text": "The center opens its doors. Local NGO partnerships and Ministry integration ensure it will serve the community for generations — self-sustaining, dignified, enduring.", "status": "pending", "status_text": "Upcoming" }
+    ]
+  },
+  "partners": {
+    "label": "Founding Partners",
+    "title": "Become a Founding Partner",
+    "text": "Your donation makes you part of this story of transformation. Every level receives quarterly photo and video updates from the field.",
+    "levels": [
+      { "amount": "$100", "title": "Prenatal Care Partner", "text": "Supporting 5 mothers' journeys through safe prenatal care access. You'll receive a welcome story from the field.", "button": "Give $100", "featured": false, "tag": "" },
+      { "amount": "$500", "title": "Examination Room Founder", "text": "Equipping an essential care space. Your name is recognized as a founding contributor in inaugural materials.", "button": "Give $500", "featured": true, "tag": "Most Impactful" },
+      { "amount": "$5,000", "title": "Family Health Champion", "text": "Sponsoring care for 50 families. Includes a virtual meeting with community leaders and a named dedication within the center.", "button": "Give $5,000", "featured": false, "tag": "" }
+    ]
+  }
+}

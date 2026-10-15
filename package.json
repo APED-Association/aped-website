@@ -1,0 +1,13 @@
+{
+  "name": "aped-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "APED Association website. Built with Eleventy, edited with Pages CMS, published by GitHub Pages.",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --quiet"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

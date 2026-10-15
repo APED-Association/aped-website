@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "label": "Who We Are",
+    "title": "A Togolese nonprofit born from the communities it serves",
+    "text": "Founded on October 18, 1998 by young people from the Avé Prefecture who refused to accept the conditions they saw around them. Independent, non-political, and rooted in respect for local cultures.",
+    "button": "Support Our Mission",
+    "photo": "/assets/photos/community-1.webp"
+  },
+  "mission": {
+    "label": "Our Mission",
+    "title": "Simple, urgent, and unwavering",
+    "text": "To support underprivileged children by giving them access to education and essential healthcare. To walk alongside vulnerable communities — providing prevention, awareness, and access to basic health services. To stand with girls and young women so they can improve their living conditions, find their place in society, and move forward with dignity, strength and hope."
+  },
+  "values": [
+    { "title": "Education as a Right", "text": "Every child deserves school access. Our family sponsorship programs ensure children don't just enroll — they stay, graduate, and go further." },
+    { "title": "Health as a Foundation", "text": "Without health, nothing else is possible. We set up social and health infrastructure to relieve suffering and meet the needs of local communities." },
+    { "title": "Partnership, Not Dependency", "text": "Our work is rooted in win-win partnerships where everyone contributes and benefits. The community leads; we walk alongside." },
+    { "title": "Girls First", "text": "Through vocational training, rights promotion, and capacity building — we support girls' integration into working life with dignity." },
+    { "title": "Economic Autonomy", "text": "Income-generating activities — sponsorship, agriculture, vocational training — help families fund their children's schooling sustainably." },
+    { "title": "Active Citizenship", "text": "Civic education and community awareness build communities that advocate for themselves and hold space for one another." }
+  ],
+  "team_section": {
+    "label": "Our Leadership",
+    "title": "The people behind the mission",
+    "text": "A team rooted in the Avé Prefecture — leading APED's programs in education, health, WASH, and women's empowerment."
+  },
+  "territory": {
+    "label": "Area of Intervention",
+    "title": "Avé Prefecture, Maritime Region of Togo",
+    "paragraphs": [
+      "Our association works across approximately 1,146 km², home to nearly 120,000 people. This is where our actions come to life — close to the communities we serve.",
+      "Avé is divided into two municipalities across eight cantons. In each, live families, children, and young people facing multiple vulnerabilities. It is alongside them that we work every day."
+    ],
+    "municipality_1_label": "Municipality 1",
+    "municipality_1": ["Assahoun", "Kévé", "Tovégan", "Zolo", "Edzi"],
+    "municipality_2_label": "Municipality 2",
+    "municipality_2": ["Aképé", "Badja", "Noépé"]
+  },
+  "newsletter": {
+    "title": "Stay close to the work.",
+    "text": "Field updates, milestones, and stories from the Avé Prefecture.",
+    "button": "Keep me posted"
+  }
+}

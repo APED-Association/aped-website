@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "label": "Make a Difference",
+    "title": "Become a Founding Partner",
+    "text": "Every contribution — of any size — builds the foundation of the Kpotamé Rural Health Center and the future it represents."
+  },
+  "gift": {
+    "label": "Choose Your Gift",
+    "title": "Every dollar builds hope"
+  },
+  "amounts": [
+    { "amount": "$25", "note": "1 child's school supplies", "preselected": false },
+    { "amount": "$100", "note": "Prenatal Care Partner", "preselected": true },
+    { "amount": "$250", "note": "Community health kit", "preselected": false },
+    { "amount": "$500", "note": "Exam Room Founder", "preselected": false },
+    { "amount": "$1,000", "note": "Family health access", "preselected": false },
+    { "amount": "$5,000", "note": "Family Health Champion", "preselected": false }
+  ],
+  "custom_label": "Or enter a custom amount",
+  "paypal_button": "Donate with PayPal",
+  "secure_note": "Secure payment via Donorbox or PayPal. You confirm the amount on the next screen.",
+  "wire": {
+    "heading": "Prefer to send a wire transfer?",
+    "before_email": "Email us at",
+    "after_email": "and we'll send banking details directly."
+  },
+  "partnership": {
+    "heading": "Your partnership matters beyond the gift.",
+    "text": "As a donor, you'll receive quarterly photo and video updates showing real progress and real human stories from Kpotamé. You become part of the founding story of this community's health center."
+  },
+  "sidebar": {
+    "title": "Your Founding Partner Gift",
+    "subtitle": "Kpotamé Rural Health Center, Togo",
+    "goal_label": "Foundation Phase Goal",
+    "trust": [
+      "APED founded October 18, 1998",
+      "Quarterly field updates with photos & video",
+      "Ministry of Health partnership for sustainability",
+      "Community contributed land & labor",
+      "Serving 18,000+ people across 17 villages"
+    ],
+    "question": "Questions? Email"
+  }
+}
