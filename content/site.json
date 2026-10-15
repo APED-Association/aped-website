@@ -1,0 +1,24 @@
+{
+  "email": "apedassoc@gmail.com",
+  "founded": "1998-10-18",
+  "logo_name": "APED",
+  "logo_sub": "Association — Togo",
+  "menu": {
+    "home": "Home",
+    "about": "About Us",
+    "impact": "Impact",
+    "project": "Our Project",
+    "involve": "Get Involved",
+    "contact": "Contact",
+    "news": "News",
+    "donate": "Donate Now"
+  },
+  "fundraising": {
+    "phase_name": "Foundation Phase",
+    "raised": "$0",
+    "phase_goal": "$180,000",
+    "project_total": "$450,000",
+    "percent_funded": 0
+  },
+  "footer_text": "APED Association. All rights reserved."
+}

@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "badge": "Est. 1998 · Avé Prefecture, Togo",
+    "headline": "Every child deserves a chance to thrive.",
+    "highlight": "chance",
+    "paragraph": "Become the partner who changes what's possible. In the Avé Prefecture of Togo, 18,000 people are waiting for their first health center. Education is within reach. Girls are ready to lead. All that's missing is you.",
+    "primary_button": "Become a Partner",
+    "secondary_button": "Our Story",
+    "photo_top": "/assets/photos/pediatric-consultation.webp",
+    "caption_top": "Pediatric Care — Avé Prefecture",
+    "photo_bottom": "/assets/photos/construction-site.webp",
+    "caption_bottom": "Health Center Construction"
+  },
+  "stats": [
+    { "number": "18,000+", "label": "People Served" },
+    { "number": "17", "label": "Villages Reached" },
+    { "number": "{years} yrs", "label": "In the Field" },
+    { "number": "$450K", "label": "Health Center Goal" }
+  ],
+  "story": {
+    "label": "Our Story",
+    "title": "Born from a refusal to stand by",
+    "paragraph": "It all began with a feeling that something wasn't right. Too many children were growing up without protection, without support, without access to education or health care. A group of young people from Avé decided they could no longer do nothing.",
+    "quote": "The people of Kpotamé are not waiting for help — they are inviting you into partnership, not dependency.",
+    "button": "Read the Full Story",
+    "photo_1": "/assets/photos/sewing-apprentice.webp",
+    "photo_2": "/assets/photos/children-school.webp",
+    "photo_3": "/assets/photos/hair-salon.webp",
+    "photo_4": "/assets/photos/school-field.webp"
+  },
+  "programs": {
+    "label": "What We Do",
+    "title": "Four pillars of community transformation",
+    "intro": "Our programs are interconnected — a child in school, a mother with skills, a family with healthcare, a community with a voice.",
+    "items": [
+      { "icon": "📚", "color": "edu", "title": "Education & Sponsorship", "text": "Supporting underprivileged children with family sponsorship programs to ensure school access and long-term retention.", "link_label": "Learn more →", "link_to": "about" },
+      { "icon": "🏥", "color": "health", "title": "Rural Healthcare", "text": "Building the Kpotamé Health Center for Women & Children to bring maternal, pediatric, and emergency care to 18,000+ people.", "link_label": "Learn more →", "link_to": "project" },
+      { "icon": "✂️", "color": "women", "title": "Girls & Women's Empowerment", "text": "Vocational training in sewing, hairdressing, and entrepreneurship — equipping young women to build independent futures.", "link_label": "Learn more →", "link_to": "involve" },
+      { "icon": "🤝", "color": "civic", "title": "Civic Education", "text": "Community awareness, village assemblies, and civic engagement to build active, informed, and resilient communities.", "link_label": "Learn more →", "link_to": "" }
+    ]
+  },
+  "impact": {
+    "label": "Impact 2023 – 2025",
+    "title": "Three years. Real numbers. Real lives.",
+    "intro": "Across education, health, WASH, and women's empowerment — measurable change in rural Togo.",
+    "items": [
+      { "number": "450", "unit": "+", "label": "Children Supported\nThrough Education", "note": "256 of them girls" },
+      { "number": "170", "unit": "+", "label": "Women in Health &\nEmpowerment Programs", "note": "" },
+      { "number": "600", "unit": "+", "label": "Households Reached\nThrough WASH", "note": "" },
+      { "number": "74", "unit": "%", "label": "Average Program\nImplementation Rate", "note": "" }
+    ],
+    "button": "See the Full Impact Report →"
+  },
+  "spotlight": {
+    "label": "Flagship Project",
+    "title": "Rural Health Center for Women & Children — Kpotamé",
+    "text": "In this cluster of 17 villages, more than 18,000 people travel up to 40 km for basic care. We are changing that — together.",
+    "photo": "/assets/photos/construction-site.webp",
+    "progress_title": "Foundation Phase Progress",
+    "milestones": [
+      { "status": "done", "title": "Site preparation complete", "detail": "Land contributed by the Kpotamé community" },
+      { "status": "active", "title": "Foundation phase — Active", "detail": "Raising $180,000 to lay the foundation" },
+      { "status": "pending", "title": "Structure & roofing", "detail": "Pending funding milestone" },
+      { "status": "pending", "title": "Equipment, staffing & inauguration", "detail": "Partnership with Ministry of Health" }
+    ],
+    "button": "See Full Project Details"
+  },
+  "testimonials": {
+    "label": "Voices from the Field",
+    "title": "Partnership in action",
+    "items": [
+      { "quote": "Every day, families face preventable risks. Mothers giving birth without skilled care. Children treated too late for malaria. APED is working to change this reality — and they're doing it the right way, with and for the community.", "initials": "KK", "name": "Kokou Delali KODJOVI-NUMADO", "role": "Founder & Executive Director, APED" },
+      { "quote": "The apprenticeship program changed my life. I now have my own salon and can provide for my children. APED gave me the skills and the confidence to stand on my own.", "initials": "A", "name": "Apprentice Graduate", "role": "Hairdressing Program, Avé Prefecture" },
+      { "quote": "When a mother no longer walks 20 km for care, when a child can be treated the same day symptoms begin — an entire community changes. That is what we are building together.", "initials": "SN", "name": "Senyo KODJOVI-NUMADO", "role": "Program Officer, APED" }
+    ]
+  },
+  "action": {
+    "label": "Take Action Today",
+    "title": "The foundation won't lay itself.\nBe part of what comes next.",
+    "text": "Every contribution — $25 or $5,000 — is tracked, reported, and felt by real families in Kpotamé.",
+    "donate_button": "Donate Now →",
+    "volunteer_button": "Volunteer with APED"
+  },
+  "newsletter": {
+    "title": "Stay close to the mission.",
+    "text": "Quarterly updates, field stories, and project milestones, delivered to you.",
+    "button": "Keep me posted"
+  }
+}

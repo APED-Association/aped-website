@@ -1,0 +1,30 @@
+{
+  "hero": {
+    "label": "Get Involved",
+    "title": "Three ways to stand with APED",
+    "text": "Donors, volunteers, and the communities we serve — these are the three pillars that make a nonprofit. Every form of support matters."
+  },
+  "donate": {
+    "icon": "💛",
+    "title": "Donate",
+    "text": "Fund education sponsorships, the health center construction, or girls' vocational training. Every contribution is tracked and reported.",
+    "button": "Donate Now"
+  },
+  "volunteer": {
+    "icon": "🤝",
+    "title": "Volunteer / Intern",
+    "text": "APED is seeking passionate individuals for communication, donor engagement, content strategy, and international outreach. 3–6 month commitment.",
+    "button": "Apply Now"
+  },
+  "partner": {
+    "icon": "🌍",
+    "title": "Partner With Us",
+    "text": "Corporate sponsors, foundations, and NGOs — we build structured win-win partnerships with transparent reporting and recognition.",
+    "button": "Get in Touch"
+  },
+  "volunteer_form": {
+    "label": "Volunteer Application",
+    "title": "Join our communication & donor engagement team",
+    "text": "Ideal for anyone passionate about nonprofit development, storytelling, and international outreach. A letter of recommendation is provided upon completion."
+  }
+}

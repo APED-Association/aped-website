@@ -13,3 +13,5 @@ assets/photos/testimony-video.mp4
 # Handover docs kept locally, not published to the repo
 APED-Website-Guide.pdf
 CMS-BUILD-PLAN.md
+node_modules
+_site/

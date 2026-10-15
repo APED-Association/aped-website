@@ -1,0 +1,26 @@
+{%- macro go(id) -%}{% if standalone %}href="/#{{ id }}"{% else %}href="#" onclick="showPage('{{ id }}')"{% endif %}{%- endmacro -%}
+<nav>
+  <a class="nav-logo" {% if standalone %}href="/"{% else %}href="#" onclick="showPage('home')"{% endif %}>
+    <img class="nav-logo-img" width="48" height="48" loading="eager" decoding="async" src="{{ root }}assets/brand/logo-aped.png" alt="APED Association">
+    <div>
+      <div class="nav-logo-text">{{ site.logo_name }}</div>
+      <div class="nav-logo-sub">{{ site.logo_sub }}</div>
+    </div>
+  </a>
+  <button class="nav-burger" onclick="toggleNav()" aria-label="Open navigation menu">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="nav-links" id="nav-links">
+    <a {{ go('home') }} id="nav-home"{% if not standalone %} class="active"{% endif %}>{{ site.menu.home }}</a>
+    <a {{ go('about') }} id="nav-about">{{ site.menu.about }}</a>
+    <a {{ go('impact') }} id="nav-impact">{{ site.menu.impact }}</a>
+    <a {{ go('project') }} id="nav-project">{{ site.menu.project }}</a>
+    <a {{ go('involve') }} id="nav-involve">{{ site.menu.involve }}</a>
+    <a {{ go('contact') }} id="nav-contact">{{ site.menu.contact }}</a>
+    <a {{ go('news') }} id="nav-news">{{ site.menu.news }}</a>
+{%- for p in collections.extraPages %}{% if p.data.show_in_menu and p.url %}
+    <a href="{{ p.url }}"{% if page.url == p.url %} class="active"{% endif %}>{{ p.data.menu_label or p.data.title }}</a>
+{%- endif %}{% endfor %}
+    <a {{ go('donate') }} class="nav-cta">{{ site.menu.donate }}</a>
+  </div>
+</nav>

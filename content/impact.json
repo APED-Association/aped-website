@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "badge": "Cumulative Impact Report",
+    "title": "Three years of measurable change in rural Togo.",
+    "text": "Between 2023 and 2025, APED implemented integrated community development programs across education, maternal health, WASH, vocational training, and women's economic empowerment — achieving a 74% overall implementation rate despite financial and logistical constraints.",
+    "photo": "/assets/photos/children-school.webp"
+  },
+  "figures": [
+    { "number": "450", "label": "Vulnerable children supported through education, 256 of them girls" },
+    { "number": "120", "label": "Sanitation facilities constructed" },
+    { "number": "170+", "label": "Women in health & economic empowerment" },
+    { "number": "600+", "label": "Households reached through WASH interventions" },
+    { "number": "74%", "label": "Average program implementation rate" }
+  ],
+  "performance": {
+    "label": "Program Performance Summary",
+    "title": "Sector-by-sector delivery, 2023 – 2025",
+    "text": "Six program areas, planned vs. achieved. Strong field execution in maternal health and WASH infrastructure; gaps in vocational training and hygiene-kit distribution flag where additional funding will compound impact.",
+    "sectors": [
+      { "name": "Education", "planned": "600", "achieved": "450", "rate": 75 },
+      { "name": "Maternal Health", "planned": "60", "achieved": "60", "rate": 100 },
+      { "name": "WASH Infrastructure", "planned": "120", "achieved": "120", "rate": 100 },
+      { "name": "Hygiene Kits Distribution", "planned": "150", "achieved": "105", "rate": 70 },
+      { "name": "Vocational Training", "planned": "90", "achieved": "55", "rate": 61 },
+      { "name": "Women's Economic Empowerment", "planned": "120", "achieved": "110", "rate": 92 }
+    ]
+  },
+  "insights": [
+    { "title": "Where APED is exceptional", "text": "Maternal Health (100%) and WASH Infrastructure (100%) demonstrate strong field execution capacity. Women's Economic Empowerment (92%) shows high community engagement and program-fit. These are areas where capital scales directly into outcomes.", "warning": false },
+    { "title": "Where targeted investment compounds", "text": "Vocational Training (61%) and Hygiene Kits Distribution (70%) underperformed primarily due to resource limitations. Each has a clear unit-cost path to scale — additional funding here removes the bottleneck rather than testing a new theory of change.", "warning": true }
+  ],
+  "community": {
+    "label": "Community Impact",
+    "title": "Beyond the numbers — what changed in daily life",
+    "areas": [
+      { "icon": "📚", "color": "edu", "title": "Education", "points": ["Improved school attendance among vulnerable children", "Reduced dropout tendencies in targeted communities", "Increased parental involvement in education"] },
+      { "icon": "🏥", "color": "health", "title": "Maternal & Community Health", "points": ["Increased access to prenatal consultations", "Improved postnatal follow-up services", "Strengthened community awareness on maternal health practices"] },
+      { "icon": "💧", "color": "wash", "title": "Water, Sanitation & Hygiene", "points": ["Improved hygiene practices at the household level", "Reduction in waterborne disease risks", "Strengthened environmental sanitation systems"] },
+      { "icon": "👩🏾‍🤝‍👩🏾", "color": "women", "title": "Women's Economic Empowerment", "points": ["Increased income-generating opportunities for women", "Development of small-scale productive activities", "Strengthened leadership and participation in community decision-making"] }
+    ]
+  },
+  "challenges": {
+    "label": "Key Challenges",
+    "title": "What's standing between APED and 10× impact",
+    "items": [
+      "Limited funding for scaling child health and vaccination programs.",
+      "Insufficient resources for expanding vocational training initiatives.",
+      "Need for broader WASH awareness and behavior-change campaigns.",
+      "Limited access to primary healthcare infrastructure in rural communities."
+    ]
+  },
+  "priority": {
+    "label": "Strategic Priority 2026 – 2028",
+    "title": "Community Health Center — Kpotamé",
+    "paragraphs": [
+      "Access to healthcare remains a major challenge in Kpotamé and surrounding rural communities. Many households travel long distances to access basic medical consultations, prenatal and postnatal care, child vaccinations, and emergency healthcare.",
+      "To address this critical gap, APED has identified the construction of a Community Health Center in Kpotamé as the strategic priority for 2026–2028."
+    ],
+    "services": ["Basic medical consultations", "Prenatal and postnatal care", "Child vaccination services", "Emergency healthcare"],
+    "button": "See the Full Project Plan →",
+    "photo": "/assets/photos/construction-site.webp"
+  },
+  "outlook": {
+    "label": "Strategic Outlook 2026 – 2028",
+    "title": "How APED scales next",
+    "items": [
+      "Construction & operationalization of the Kpotamé Community Health Center",
+      "Expansion of WASH programs to additional rural villages",
+      "Relaunch & strengthening of child vaccination initiatives",
+      "Scaling of vocational training & women's empowerment programs",
+      "Strengthening monitoring & evaluation systems for better impact tracking"
+    ]
+  },
+  "why": {
+    "label": "Why Support APED",
+    "title": "A high-impact investment in scalable, sustainable rural transformation",
+    "reasons": [
+      "Proven ability to deliver measurable impact across education, health, WASH, and economic empowerment",
+      "Strong community presence and trust at the grassroots level",
+      "High implementation efficiency despite limited resources (74% overall rate)",
+      "Scalable and sustainable intervention models",
+      "Clear strategic vision with high-impact priorities such as the Kpotamé Health Center",
+      "Open to development agencies, foundations, and impact investors committed to rural Togo"
+    ],
+    "primary_button": "Become a Founding Partner",
+    "secondary_button": "Discuss a Partnership"
+  }
+}
