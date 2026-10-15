@@ -3,10 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>APED — Content Editor</title>
+  <meta name="robots" content="noindex" />
+  <title>APED Content Editor</title>
+  <!-- The editor is Pages CMS: editors sign in with their email, no GitHub account. -->
+  <meta http-equiv="refresh" content="0; url=https://app.pagescms.org/aped-association/aped-website/main" />
+  <script>location.replace('https://app.pagescms.org/aped-association/aped-website/main');</script>
+  <style>
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #fff; color: #222; font: 16px/1.5 system-ui, sans-serif; text-align: center; padding: 16px; }
+    a { color: #0a6; }
+  </style>
 </head>
 <body>
-  <!-- Sveltia CMS: modern, GitHub-login editor. No auth backend to host. -->
-  <script src="https://cdn.jsdelivr.net/npm/@sveltia/cms/dist/sveltia-cms.js" type="module"></script>
+  <p>Opening the APED content editor…<br />
+  If nothing happens, <a href="https://app.pagescms.org/aped-association/aped-website/main">click here</a>.</p>
 </body>
 </html>
