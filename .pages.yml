@@ -1,0 +1,94 @@
+# Pages CMS — APED website content editor.
+# Editors are invited by email and sign in with that email. No GitHub account,
+# no token. Saving commits to this repo and GitHub Pages republishes (~1 minute).
+# The site reads these JSON files at runtime via assets/cms-loader.js.
+
+media:
+  - name: uploads
+    label: Photos
+    input: assets/uploads
+    output: /assets/uploads
+    categories: [image]
+    rename: safe
+  - name: team
+    label: Team photos
+    input: assets/team
+    output: /assets/team
+    categories: [image]
+    rename: safe
+
+content:
+  - name: news
+    label: News
+    type: file
+    path: content/blog.json
+    format: json
+    fields:
+      - name: posts
+        label: Articles
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title} ({date})"
+        fields:
+          - name: title
+            label: Title
+            type: string
+            required: true
+          - name: date
+            label: Date
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - name: thumbnail
+            label: Photo
+            type: image
+            options:
+              media: uploads
+          - name: body
+            label: Article
+            type: rich-text
+            options:
+              format: markdown
+              media: uploads
+
+  - name: team
+    label: Leadership team
+    type: file
+    path: content/team.json
+    format: json
+    fields:
+      - name: members
+        label: Team members
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name} ({role})"
+        fields:
+          - name: name
+            label: Name
+            type: string
+            required: true
+          - name: role
+            label: Role / title
+            type: string
+          - name: photo
+            label: Photo
+            type: image
+            options:
+              media: team
+
+  - name: homepage
+    label: Homepage wording
+    type: file
+    path: content/site-copy.json
+    format: json
+    fields:
+      - name: hero_subtext
+        label: Paragraph under the headline
+        type: text
+      - name: mission
+        label: Mission statement
+        type: text
