@@ -807,6 +807,11 @@ function goDonate() {
           if (button) { button.disabled = true; button.textContent = 'Sent'; }
           notice(form, (data && data.thankYouMessage) ||
             'Thank you. Your message has reached APED, and someone will reply by email.', true);
+          // Show "Sent" for a few seconds, then hand the button back so a second message
+          // (or a correction) goes through without reloading the page.
+          if (button) {
+            setTimeout(function () { button.disabled = false; button.textContent = label; }, 4000);
+          }
         })
         .catch(function () {
           if (button) { button.disabled = false; button.textContent = label; }
