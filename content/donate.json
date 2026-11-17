@@ -9,7 +9,7 @@
     "title": "Every dollar builds hope"
   },
   "amounts": [
-    { "amount": "$25", "note": "1 child's school supplies", "preselected": false },
+    { "amount": "$25", "note": "Helps lay the foundation", "preselected": false },
     { "amount": "$100", "note": "Prenatal Care Partner", "preselected": true },
     { "amount": "$250", "note": "Community health kit", "preselected": false },
     { "amount": "$500", "note": "Exam Room Founder", "preselected": false },
