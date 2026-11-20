@@ -59,7 +59,7 @@
     "progress_title": "Foundation Phase Progress",
     "milestones": [
       { "status": "done", "title": "Site preparation complete", "detail": "Land contributed by the Kpotamé community" },
-      { "status": "active", "title": "Foundation phase — Active", "detail": "Raising $180,000 to lay the foundation" },
+      { "status": "active", "title": "Foundation phase — Active", "detail": "Raising {goal} to lay the foundation" },
       { "status": "pending", "title": "Structure & roofing", "detail": "Pending funding milestone" },
       { "status": "pending", "title": "Equipment, staffing & inauguration", "detail": "Partnership with Ministry of Health" }
     ],

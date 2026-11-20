@@ -47,6 +47,7 @@ eleventyExcludeFromCollections: true
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 {% include "styles.njk" %}
+{% include "campaign-styles.njk" %}
 </head>
 <body>
 
@@ -135,7 +136,7 @@ eleventyExcludeFromCollections: true
       <div class="progress-card">
         <h4>{{ home.spotlight.progress_title }}</h4>
         <div class="progress-bar-track"><div class="progress-bar-fill"></div></div>
-        <div class="progress-meta"><strong>{{ site.fundraising.raised }} raised</strong><span>Goal: {{ site.fundraising.phase_goal }}</span></div>
+        <div class="progress-meta"><strong>{{ site.fundraising.raised }} raised</strong><span{% if site.fundraising.goal_unconfirmed %} data-unconfirmed="goal"{% endif %}>Goal: {{ site.fundraising.phase_goal }}</span></div>
       </div>
     </div>
     <div class="spotlight-content">
@@ -144,7 +145,7 @@ eleventyExcludeFromCollections: true
       <p class="section-sub" style="color:rgba(255,255,255,0.65)">{{ home.spotlight.text }}</p>
       <ul class="milestone-list">
 {%- for m in home.spotlight.milestones %}
-        <li><div class="milestone-dot {{ m.status }}">{% if m.status == "done" %}✓{% elif m.status == "active" %}▶{% else %}{{ loop.index }}{% endif %}</div><div class="milestone-text"><strong>{{ m.title }}</strong><span>{{ m.detail }}</span></div></li>
+        <li><div class="milestone-dot {{ m.status }}">{% if m.status == "done" %}✓{% elif m.status == "active" %}▶{% else %}{{ loop.index }}{% endif %}</div><div class="milestone-text"><strong>{{ m.title }}</strong><span>{{ m.detail | tokens }}</span></div></li>
 {%- endfor %}
       </ul>
       <a href="#" onclick="showPage('project')" class="btn-primary" style="margin-top:32px;display:inline-block;">{{ home.spotlight.button }}</a>
@@ -429,7 +430,7 @@ eleventyExcludeFromCollections: true
     <div class="funding-card">
       <h3>{{ project.hero.funding_title }}</h3>
       <div class="funding-amount">{{ site.fundraising.raised }}</div>
-      <div class="funding-goal">raised toward {{ site.fundraising.phase_goal }} goal · Part of {{ site.fundraising.project_total }} total project</div>
+      <div class="funding-goal"{% if site.fundraising.goal_unconfirmed %} data-unconfirmed="goal"{% endif %}>raised toward {{ site.fundraising.phase_goal }} goal · Part of {{ site.fundraising.project_total }} total project</div>
       <div class="funding-bar"><div class="funding-fill"></div></div>
       <div class="funding-meta"><span>{{ site.fundraising.percent_funded }}% funded</span><span>{{ site.fundraising.phase_name }}</span></div>
     </div>
@@ -447,7 +448,7 @@ eleventyExcludeFromCollections: true
         <div class="phase-num"{% if ph.status == "active" %} style="color:var(--teal);opacity:1"{% endif %}>{{ loop.index | pad2 }}</div>
         <div class="phase-content">
           <h3>{{ ph.title }}</h3>
-          <p>{{ ph.text }}</p>
+          <p>{{ ph.text | tokens }}</p>
           <div class="phase-status {{ ph.status }}">{{ ph.status_text }}</div>
         </div>
       </div>
@@ -593,13 +594,12 @@ eleventyExcludeFromCollections: true
 
 <!-- ════════════════════════════ DONATE ════════════════════════════ -->
 <div id="page-donate" class="page">
-  <div class="donate-hero">
-    <div class="section-label" style="color:rgba(255,255,255,0.7)">{{ donate.hero.label }}</div>
-    <h1>{{ donate.hero.title }}</h1>
-    <p>{{ donate.hero.text }}</p>
-  </div>
+{#- No separate hero: the Laying the Foundation band opens the page, under the nav.
+    Its small label is the Donate title (donate.hero.title); donate.hero.label and .text
+    stay in content/donate.json but are not shown. -#}
+{% include "campaign-section.njk" %}
   <div class="donate-body">
-    <div>
+    <div id="choose-your-gift" class="donate-gift">
       <div class="section-label">{{ donate.gift.label }}</div>
       <div class="section-title" style="font-size:32px;margin-bottom:32px">{{ donate.gift.title }}</div>
       <div class="freq-toggle">
@@ -618,7 +618,7 @@ eleventyExcludeFromCollections: true
         <input class="custom-input" type="text" placeholder="$ Custom amount">
       </div>
       <button class="donate-btn" onclick="goDonate()" style="width:100%;margin-top:24px">Donate {{ chosen }} Now →</button>
-      <button onclick="window.open('https://www.paypal.com/ncp/payment/MTFA472XWXU7E','_blank','noopener')" style="width:100%;margin-top:12px;padding:15px;background:#ffc439;color:#0c2e5c;border:none;border-radius:var(--radius);font-size:16px;font-weight:700;cursor:pointer;font-family:inherit">{{ donate.paypal_button }}</button>
+      <button onclick="window.open({{ campaign.paypal_url | dump }},'_blank','noopener')" style="width:100%;margin-top:12px;padding:15px;background:#ffc439;color:#0c2e5c;border:none;border-radius:var(--radius);font-size:16px;font-weight:700;cursor:pointer;font-family:inherit">{{ donate.paypal_button }}</button>
       <p style="font-size:12px;color:var(--gray-500);text-align:center;margin-top:10px">{{ donate.secure_note }}</p>
       <div style="margin-top:24px;padding:18px 22px;background:var(--blue-light);border-radius:var(--radius);border-left:3px solid var(--blue);">
         <p style="font-size:14px;color:var(--blue);line-height:1.6"><strong>{{ donate.wire.heading }}</strong> {{ donate.wire.before_email }} <a href="mailto:{{ site.email }}" style="color:inherit;text-decoration:underline;font-weight:600">{{ site.email }}</a> {{ donate.wire.after_email }}</p>
@@ -632,7 +632,7 @@ eleventyExcludeFromCollections: true
       <p>{{ donate.sidebar.subtitle }}</p>
       <div style="background:var(--blue-light);border-radius:var(--radius);padding:16px 20px;margin-bottom:24px">
         <p style="font-size:13px;color:var(--blue);font-weight:600;margin-bottom:4px">{{ donate.sidebar.goal_label }}</p>
-        <p style="font-size:28px;font-weight:700;font-family:var(--serif);color:var(--blue)">{{ site.fundraising.phase_goal }}</p>
+        <p style="font-size:28px;font-weight:700;font-family:var(--serif);color:var(--blue);font-variant-numeric:lining-nums"{% if site.fundraising.goal_unconfirmed %} data-unconfirmed="goal"{% endif %}>{{ site.fundraising.phase_goal }}</p>
         <div style="height:6px;background:rgba(26,58,107,0.1);border-radius:100px;margin:10px 0"><div style="height:100%;width:{{ site.fundraising.percent_funded }}%;background:var(--teal);border-radius:100px"></div></div>
         <p style="font-size:12px;color:var(--blue-mid)">{{ site.fundraising.percent_funded }}% funded · {{ site.fundraising.raised }} raised</p>
       </div>
@@ -720,7 +720,7 @@ function setFreq(btn) {
   btn.classList.add('active');
 }
 // Open the APED Donorbox campaign, carrying the chosen amount + frequency
-const DONORBOX_URL = 'https://donorbox.org/rural-health-center-for-women-and-children-kpotame-assahoun-togo-943932';
+const DONORBOX_URL = {{ campaign.donorbox_url | dump | safe }};
 function goDonate() {
   const sel = document.querySelector('.amount-btn.selected');
   const custom = document.querySelector('.custom-input');
@@ -830,11 +830,27 @@ document.addEventListener('click', function (e) {
   if (a) e.preventDefault();
 });
 
+// A link to a section inside a page, e.g. apedassociation.org/#laying-the-foundation,
+// opens that page and scrolls to the section.
+const sectionPages = { 'laying-the-foundation': 'donate', 'choose-your-gift': 'donate' };
+function showSection(hash) {
+  const page = sectionPages[hash];
+  if (!page) return false;
+  const current = document.getElementById('page-' + page);
+  if (!current || !current.classList.contains('active')) showPage(page);
+  const el = document.getElementById(hash);
+  if (el) setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+  if (history.replaceState) history.replaceState(null, '', '#' + hash);
+  return true;
+}
+
 // Hash routing: if the URL has a hash like #thanks or #about on load, route to that page
 (function routeFromHash() {
   const hash = (window.location.hash || '').replace('#', '').toLowerCase();
   if (hash && pageTitles[hash]) {
     showPage(hash);
+  } else if (hash) {
+    showSection(hash);
   }
 })();
 // Also respond to back/forward navigation
@@ -842,7 +858,9 @@ window.addEventListener('hashchange', function () {
   const hash = (window.location.hash || '').replace('#', '').toLowerCase();
   if (hash && pageTitles[hash]) {
     showPage(hash);
-  } else if (!hash) {
+  } else if (hash) {
+    showSection(hash);
+  } else {
     showPage('home');
   }
 });

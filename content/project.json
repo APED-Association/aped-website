@@ -10,7 +10,7 @@
     "title": "From cleared ground to open doors",
     "text": "Four phases, built on transparency. Each quarter, donors receive photo and video updates — real progress, real stories.",
     "phases": [
-      { "title": "Site Preparation & Foundation", "text": "The community of Kpotamé contributed their own land and labor. Site clearing is complete. This phase raises $180,000 to lay the foundation — the literal groundwork for everything that follows.", "status": "active", "status_text": "▶ Currently Active — Foundation Campaign" },
+      { "title": "Site Preparation & Foundation", "text": "The community of Kpotamé contributed their own land and labor. Site clearing is complete. This phase raises {goal} to lay the foundation — the literal groundwork for everything that follows.", "status": "active", "status_text": "▶ Currently Active — Foundation Campaign" },
       { "title": "Structure & Roofing", "text": "Walls rise and roofing is completed, creating the physical space for clinical operations. Timeline contingent on reaching the Phase 1 funding milestone.", "status": "pending", "status_text": "Upcoming" },
       { "title": "Medical Equipment & Staffing", "text": "Examination tables, diagnostic tools, maternity ward equipment, and the recruitment of trained healthcare professionals — in partnership with Togo's Ministry of Health.", "status": "pending", "status_text": "Upcoming" },
       { "title": "Inauguration & Sustained Operations", "text": "The center opens its doors. Local NGO partnerships and Ministry integration ensure it will serve the community for generations — self-sustaining, dignified, enduring.", "status": "pending", "status_text": "Upcoming" }
