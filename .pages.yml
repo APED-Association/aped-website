@@ -123,7 +123,7 @@ content:
               - { name: title, label: Title, type: string }
               - { name: text, label: Paragraph, type: text }
               - { name: photo, label: Photo, type: image, options: { media: photos } }
-              - { name: progress_title, label: Progress card title, type: string, description: "Amounts raised and the goal are set in Site settings." }
+              - { name: progress_title, label: Progress card title, type: string, description: "Amounts raised and the goal come from Laying the Foundation (Donate page)." }
               - name: milestones
                 label: Milestones
                 type: object
@@ -134,7 +134,7 @@ content:
                     type: select
                     options: { values: [ { name: done, label: Done }, { name: active, label: In progress }, { name: pending, label: Not started } ] }
                   - { name: title, label: Title, type: string }
-                  - { name: detail, label: Detail, type: string }
+                  - { name: detail, label: Detail, type: string, description: "Write {goal} where the Foundation campaign goal should appear. It is filled in from Laying the Foundation." }
               - { name: button, label: Button, type: string }
           - name: testimonials
             label: Testimonials
@@ -338,7 +338,7 @@ content:
               - { name: label, label: Small label, type: string }
               - { name: title, label: Title, type: string }
               - { name: text, label: Paragraph, type: text }
-              - { name: funding_title, label: Funding card title, type: string, description: "Amounts raised and the goal are set in Site settings." }
+              - { name: funding_title, label: Funding card title, type: string, description: "Amounts raised and the goal come from Laying the Foundation (Donate page)." }
           - name: roadmap
             label: Project roadmap
             type: object
@@ -352,7 +352,7 @@ content:
                 list: { collapsible: { collapsed: true, summary: "{title}" } }
                 fields:
                   - { name: title, label: Title, type: string }
-                  - { name: text, label: Description, type: text }
+                  - { name: text, label: Description, type: text, description: "Write {goal} where the Foundation campaign goal should appear. It is filled in from Laying the Foundation." }
                   - name: status
                     label: Status
                     type: select
@@ -454,11 +454,12 @@ content:
         fields:
           - name: hero
             label: Top of the page
+            description: "The page opens with the Laying the Foundation section (edit it under Laying the Foundation). Only the Title shows here, as the small yellow label above it. The Small label and Paragraph are kept but not shown."
             type: object
             fields:
-              - { name: label, label: Small label, type: string }
-              - { name: title, label: Title, type: string }
-              - { name: text, label: Paragraph, type: text }
+              - { name: label, label: "Small label (not shown)", type: string }
+              - { name: title, label: "Title (shown as the small label above Laying the Foundation)", type: string }
+              - { name: text, label: "Paragraph (not shown)", type: text }
           - name: gift
             label: Gift heading
             type: object
@@ -498,6 +499,109 @@ content:
               - { name: goal_label, label: Goal label, type: string }
               - { name: trust, label: Reasons to trust, type: string, list: true }
               - { name: question, label: "Questions line (the email address is added after it)", type: string }
+
+      # ─────────────────────── LAYING THE FOUNDATION ───────────────────────
+      - name: campaign
+        label: "Laying the Foundation (campaign section on the Donate page)"
+        type: file
+        path: content/campaign.json
+        format: json
+        fields:
+          - { name: label, label: Small label, type: string }
+          - { name: title, label: Title, type: string }
+          - { name: intro, label: Paragraph about the first stage, type: text }
+          - { name: promise, label: "Promise under the title (one or two short sentences)", type: text }
+          - { name: photo, label: Photo beside the goal card, type: image, options: { media: photos }, description: "Use a real photo of the site. A square or landscape photo works best." }
+          - { name: photo_alt, label: "Photo description (for screen readers)", type: string, description: "Say what the photo shows, in one sentence." }
+          - { name: budget_label, label: Budget small label, type: string }
+          - { name: budget_title, label: Budget title, type: string }
+          - { name: budget_intro, label: Budget paragraph (shown when the estimate is opened), type: text }
+          - { name: estimate_summary, label: "Estimate button title", type: string, description: "The line a visitor clicks to open the full estimate table." }
+          - { name: estimate_summary_sub, label: "Estimate button subtitle", type: string }
+          - name: goal_mode
+            label: "What the goal covers"
+            type: select
+            options: { values: [ { name: lot_only, label: "Lot 1 only" }, { name: with_reserve, label: "Lot 1 plus the reserve" }, { name: all_in, label: "Lot 1 plus the reserve and VAT" } ] }
+            description: "The goal is worked out from the Lot 1 amount, so it is never typed in. It follows the reserve percent, the VAT percent and the exchange rate below, and it is the same goal on the Home page, the Our Project page and the Donate side panel."
+          - { name: goal_confirmed, label: "APED has confirmed the goal", type: boolean, description: "Tick this only after APED has confirmed the goal figure. Until then the site build prints a warning and the goal is marked as unconfirmed in the page source." }
+          - { name: goal_note, label: "Short note under the goal (optional)", type: text, description: "Leave empty to show no note. If the goal is higher than the Lot 1 amount in the table, you can explain here what it covers." }
+          - { name: raised_usd, label: "Raised so far in US dollars", type: number, description: "Type the real total. Leave 0 until a gift has arrived." }
+          - { name: show_progress, label: "Show the raised and goal box", type: boolean, description: "Untick to hide the box and show only the budget." }
+          - { name: progress_title, label: Title of the raised and goal box, type: string }
+          - { name: goal_label, label: Word before the goal, type: string }
+          - { name: raised_label, label: Word after the amount raised, type: string }
+          - name: goal_basis
+            label: "Sentence saying what the goal covers"
+            type: object
+            description: "The sentence shown follows 'What the goal covers' above. Write {reserve_percent} and {vat_percent} where the percents go; they are filled in."
+            fields:
+              - { name: lot_only, label: "When the goal is Lot 1 only", type: string }
+              - { name: with_reserve, label: "When the goal is Lot 1 plus the reserve", type: string }
+              - { name: all_in, label: "When the goal is Lot 1 plus the reserve and VAT", type: string }
+          - { name: gift_link_label, label: "Goal card button text", type: string, description: "The button scrolls down to the gift form on the same page." }
+          - name: lots
+            label: "Budget lots (amounts in FCFA)"
+            type: object
+            list: { collapsible: { collapsed: true, summary: "Lot {number}: {name}" } }
+            description: "The seven lots from the construction estimate. The subtotal, the reserve, the total and every US dollar amount are worked out from these numbers."
+            fields:
+              - { name: number, label: Lot number, type: number }
+              - { name: name, label: Name of the works, type: string }
+              - { name: fcfa, label: "Amount in FCFA (digits only)", type: number }
+              - { name: this_campaign, label: "This is the lot this campaign raises for", type: boolean }
+          - { name: ladder_title, label: "Small title above the seven stages", type: string }
+          - { name: now_label, label: "Word on the campaign lot (stage ladder)", type: string }
+          - { name: next_label, label: "Word on the other lots (stage ladder)", type: string }
+          - { name: this_campaign_tag, label: Tag on the campaign lot, type: string }
+          - { name: rate_fcfa_per_usd, label: "FCFA per US dollar", type: number, description: "Used for every US dollar amount in the section. About 603.3 today." }
+          - { name: round_usd_to, label: "Round US dollar amounts to the nearest", type: number, description: "100 means $31,019 is shown as $31,000." }
+          - { name: subtotal_label, label: Subtotal line label, type: string }
+          - { name: reserve_percent, label: "Reserve percent", type: number, description: "10 means the reserve is 10 percent of the seven lots. It is always shown as its own line." }
+          - { name: reserve_label, label: "Word after the percent (reserve)", type: string }
+          - { name: reserve_note, label: What the reserve is for, type: string }
+          - { name: vat_applies, label: "VAT applies", type: boolean, description: "Untick if an exemption is granted. The VAT line, its footnote and the VAT inside every total and the goal then disappear, and the totals are worked out again." }
+          - { name: vat_percent, label: "VAT percent", type: number, description: "18 means VAT is 18 percent of the seven lots plus the reserve. It is always shown as its own line." }
+          - { name: vat_label, label: "VAT line label", type: string, description: "The percent and the asterisk are added after it, so VAT shows as VAT (18%)*." }
+          - { name: vat_note, label: "VAT footnote under the table", type: text, description: "Starts with the asterisk. Write {vat_percent} where the percent goes and it is filled in from the VAT percent above." }
+          - { name: vat_note_confirmed, label: "APED has approved the VAT wording", type: boolean, description: "Tick this only after APED has approved the VAT line and footnote wording. Until then the site build prints a warning." }
+          - { name: construction_note, label: "Line under the table about what it covers", type: string }
+          - { name: total_label, label: "Total line label (VAT included)", type: string }
+          - { name: total_label_without_vat, label: "Total line label (when VAT does not apply)", type: string }
+          - name: building
+            label: "The building (drawings band under the stage ladder)"
+            type: object
+            description: "APED's own drawings of the health center. Untick Show to hide the whole band."
+            fields:
+              - { name: show, label: Show this band, type: boolean }
+              - { name: label, label: Small label, type: string }
+              - { name: title, label: Title, type: string }
+              - { name: intro, label: Paragraph, type: text }
+              - { name: render, label: "Drawing of the finished building", type: image, options: { media: photos } }
+              - { name: render_alt, label: "Drawing description (for screen readers)", type: string }
+              - { name: render_caption, label: Caption under the drawing, type: string }
+              - { name: credit, label: "Credit for the drawings (optional)", type: string, description: "For example: Drawings by [name], building technician. Leave empty until APED confirms the name." }
+              - { name: plan, label: Floor plan, type: image, options: { media: photos } }
+              - { name: plan_alt, label: "Floor plan description (for screen readers)", type: string }
+              - { name: plan_title, label: Title beside the floor plan, type: string }
+              - name: rooms
+                label: What is inside
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{group}" } }
+                fields:
+                  - { name: group, label: Group, type: string }
+                  - { name: items, label: Rooms, type: string }
+              - { name: foundation_plan, label: Foundation plan, type: image, options: { media: photos } }
+              - { name: foundation_plan_alt, label: "Foundation plan description (for screen readers)", type: string }
+              - { name: foundation_title, label: Title beside the foundation plan, type: string }
+              - { name: foundation_text, label: Sentence beside the foundation plan, type: text }
+          - name: first_block
+            label: Lay the First Block
+            type: object
+            fields:
+              - { name: label, label: Small label, type: string }
+              - { name: text, label: "One sentence", type: text, description: "Keep it to one sentence. Do not promise which gifts are engraved until APED has decided." }
+          - { name: donorbox_url, label: "Donorbox link (gift form on the Donate page)", type: string, description: "The Donate button in the gift form opens this link with the chosen amount. Today this is the existing APED Donorbox campaign. Replace it with the new Laying the Foundation campaign link once APED creates it. A full web address starting with https://." }
+          - { name: paypal_url, label: "PayPal link (gift form on the Donate page)", type: string, description: "A full web address starting with https://." }
 
       # ─────────────────────────── THANKS ───────────────────────────
       - name: thanks
@@ -574,7 +678,7 @@ content:
 
   # ─────────────────────────── SITE SETTINGS ───────────────────────────
   - name: site
-    label: Site settings (menu, email, fundraising totals)
+    label: Site settings (menu, email, phase name, total project cost)
     type: file
     path: content/site.json
     format: json
@@ -596,12 +700,10 @@ content:
           - { name: news, label: News, type: string }
           - { name: donate, label: Donate button, type: string }
       - name: fundraising
-        label: Fundraising totals (shown on Home, Our Project and Donate)
+        label: Phase name and total project cost
         type: object
+        description: "The amount raised, the goal and the percent funded are not set here. They come from Laying the Foundation (Donate page), so every page shows the same figures."
         fields:
           - { name: phase_name, label: Current phase, type: string }
-          - { name: raised, label: Amount raised, type: string }
-          - { name: phase_goal, label: Goal for this phase, type: string }
           - { name: project_total, label: Total project cost, type: string }
-          - { name: percent_funded, label: "Percent funded (0 to 100)", type: number }
       - { name: footer_text, label: Footer text (after © and the year), type: string }

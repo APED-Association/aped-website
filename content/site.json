@@ -15,10 +15,7 @@
   },
   "fundraising": {
     "phase_name": "Foundation Phase",
-    "raised": "$0",
-    "phase_goal": "$180,000",
-    "project_total": "$450,000",
-    "percent_funded": 0
+    "project_total": "$450,000"
   },
   "footer_text": "APED Association. All rights reserved."
 }

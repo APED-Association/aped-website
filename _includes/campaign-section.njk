@@ -1,0 +1,192 @@
+{#- Laying the Foundation: the campaign section at the top of the Donate page.
+    Every word is in content/campaign.json; every number is worked out from it by the
+    campaignView filter in eleventy.config.mjs (the goal included: it is worked out from Lot 1
+    by goal_mode, never typed).
+
+    Two bands between the nav and the gift form (this section opens the Donate page; there
+    is no separate hero above it):
+      1. Blue band (the site's flagship-project look): the real site photo with the raised and
+         goal card over it, the promise beside it, and the seven lots as a stage ladder.
+         Its title is the page's one h1; its small label is the Donate title, "Become a
+         Founding Partner" (donate.hero.title), falling back to campaign.label.
+         The card's button scrolls to the gift form below; it does not open a second checkout.
+      2. Cream band: "Lay the First Block" and the full estimate, folded into a disclosure so
+         the page is not a spreadsheet at first glance. Open, it shows every lot, the reserve,
+         VAT and the total, each on its own line. -#}
+{%- set v = campaign | campaignView %}
+  <section id="laying-the-foundation" class="foundation" aria-labelledby="foundation-title">
+
+    <div class="foundation-band">
+      <div class="foundation-inner foundation-top">
+        <div class="foundation-copy">
+          <div class="section-label">{{ donate.hero.title or campaign.label }}</div>
+          <h1 class="foundation-title" id="foundation-title">{{ campaign.title }}</h1>
+{%- if campaign.promise %}
+          <p class="foundation-promise">{{ campaign.promise }}</p>
+{%- endif %}
+          <p class="foundation-intro">{{ campaign.intro }}</p>
+        </div>
+
+        <div class="foundation-visual">
+{%- if campaign.photo %}
+          <img class="foundation-photo" src="{{ campaign.photo | asset }}" alt="{{ campaign.photo_alt }}" width="1600" height="1600" fetchpriority="high" decoding="async">
+{%- endif %}
+{%- if campaign.show_progress %}
+{%- if v.goal_unconfirmed %}
+          <!-- NOT CONFIRMED: APED has not approved this goal figure ({{ v.goal_text }}, goal_mode {{ v.goal_mode }}). content/campaign.json has goal_confirmed: false. Do not publish until it is true. -->
+{%- endif %}
+          <div class="foundation-card">
+            <h3 class="foundation-card-kicker">{{ campaign.progress_title }}<span>Stage {{ v.stage }} of {{ v.stages }}</span></h3>
+            <p class="foundation-raised"><strong>{{ v.raised_text }}</strong> {{ campaign.raised_label }}</p>
+            <div class="foundation-bar" role="progressbar" aria-label="{{ campaign.progress_title }}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ v.filled }}"><span style="width:{{ v.filled }}%"></span></div>
+            <p class="foundation-goal"><span>{{ v.percent_funded }}% funded</span><span{% if v.goal_unconfirmed %} data-unconfirmed="goal"{% endif %}>{{ campaign.goal_label }} <strong>{{ v.goal_text }}</strong></span></p>
+{%- if v.goal_basis %}
+            <p class="foundation-basis">{{ v.goal_basis }}</p>
+{%- endif %}
+{%- if campaign.goal_note %}
+            <p class="foundation-basis">{{ campaign.goal_note }}</p>
+{%- endif %}
+{%- if campaign.gift_link_label %}
+            <a class="btn-primary foundation-cta" href="#choose-your-gift">{{ campaign.gift_link_label }}<span aria-hidden="true">&darr;</span></a>
+{%- endif %}
+          </div>
+{%- endif %}
+        </div>
+      </div>
+
+      <div class="foundation-inner foundation-ladder">
+        <h3 class="foundation-ladder-title">{{ campaign.ladder_title }}</h3>
+        <ol class="foundation-stages">
+{%- for l in v.lots %}
+          <li class="{% if l.this_campaign %}is-now{% else %}is-next{% endif %}"{% if l.this_campaign %} aria-current="step"{% endif %}>
+            <span class="stage-bar" aria-hidden="true"></span>
+            <span class="stage-num">{{ l.number | pad2 }}</span>
+            <span class="stage-name">{{ l.name }}</span>
+            <span class="stage-status">{% if l.this_campaign %}{{ campaign.now_label }}{% else %}{{ campaign.next_label }}{% endif %}</span>
+          </li>
+{%- endfor %}
+        </ol>
+      </div>
+    </div>
+{%- set b = campaign.building %}
+{%- if b and b.show and b.render %}
+
+    {#- 1b. White band: the building itself, from APED's own drawings. The finished
+        building first (what a gift becomes), then what is inside it, then the
+        foundation plan, which is what this campaign pays for. Hidden when
+        building.show is false. -#}
+    <div class="foundation-building" aria-labelledby="building-title">
+      <div class="foundation-inner">
+        <div class="building-head">
+          <div class="section-label">{{ b.label }}</div>
+          <h2 class="building-title" id="building-title">{{ b.title }}</h2>
+          <p class="building-intro">{{ b.intro }}</p>
+        </div>
+
+        <figure class="building-render">
+          <img src="{{ b.render | asset }}" alt="{{ b.render_alt }}" width="1440" height="773" loading="lazy" decoding="async">
+          <figcaption>{{ b.render_caption }}{% if b.credit %} {{ b.credit }}{% endif %}</figcaption>
+        </figure>
+
+        <div class="building-plans">
+{%- if b.plan %}
+          <figure class="building-plan">
+            <div class="building-sheet"><img src="{{ b.plan | asset }}" alt="{{ b.plan_alt }}" width="1151" height="1200" loading="lazy" decoding="async"></div>
+            <figcaption>
+              <h3>{{ b.plan_title }}</h3>
+              <dl class="building-rooms">
+{%- for r in b.rooms %}
+                <div><dt>{{ r.group }}</dt><dd>{{ r.items }}</dd></div>
+{%- endfor %}
+              </dl>
+            </figcaption>
+          </figure>
+{%- endif %}
+{%- if b.foundation_plan %}
+          <figure class="building-plan is-campaign">
+            <div class="building-sheet"><img src="{{ b.foundation_plan | asset }}" alt="{{ b.foundation_plan_alt }}" width="984" height="1100" loading="lazy" decoding="async"></div>
+            <figcaption>
+              <span class="tag">{{ campaign.this_campaign_tag }}</span>
+              <h3>{{ b.foundation_title }}</h3>
+              <p>{{ b.foundation_text }}</p>
+            </figcaption>
+          </figure>
+{%- endif %}
+        </div>
+      </div>
+    </div>
+{%- endif %}
+
+    <div class="foundation-detail">
+      <div class="foundation-inner foundation-detail-grid">
+        <div class="foundation-block">
+          <h3>{{ campaign.first_block.label }}</h3>
+          <p>{{ campaign.first_block.text }}</p>
+        </div>
+
+        <details class="foundation-estimate">
+          <summary>
+            <span class="est-head">
+              <span class="est-title">{{ campaign.estimate_summary }}</span>
+              <span class="est-sub">{{ campaign.estimate_summary_sub }}</span>
+            </span>
+            <span class="est-total"><span class="est-total-label">{{ v.total_label }}</span><strong>{{ v.total.fcfa_text }} FCFA</strong><span class="est-total-usd">about {{ v.total.usd_text }}</span></span>
+            <span class="est-chev" aria-hidden="true"></span>
+          </summary>
+          <div class="est-body">
+            <p class="est-intro">{{ campaign.budget_intro }}</p>
+            <table class="foundation-table">
+              <caption class="foundation-sr">{{ campaign.budget_title }}: construction budget by lot, in FCFA with approximate US dollars</caption>
+              <thead>
+                <tr><th scope="col" class="lot">Lot</th><th scope="col">Works</th><th scope="col" class="num num-main">FCFA</th><th scope="col" class="num usd-col">About US$</th></tr>
+              </thead>
+              <tbody>
+{%- for l in v.lots %}
+                <tr{% if l.this_campaign %} class="is-campaign"{% endif %}>
+                  <th scope="row" class="lot">{{ l.number }}</th>
+                  <td class="works">{{ l.name }}{% if l.this_campaign and campaign.this_campaign_tag %} <span class="tag">{{ campaign.this_campaign_tag }}</span>{% endif %}</td>
+                  <td class="num">{{ l.fcfa_text }}<span class="usd-inline">{{ l.usd_text }}</span></td>
+                  <td class="num usd">{{ l.usd_text }}</td>
+                </tr>
+{%- endfor %}
+                <tr class="is-subtotal">
+                  <th scope="row" colspan="2">{{ campaign.subtotal_label }}</th>
+                  <td class="num">{{ v.subtotal.fcfa_text }}<span class="usd-inline">{{ v.subtotal.usd_text }}</span></td>
+                  <td class="num usd">{{ v.subtotal.usd_text }}</td>
+                </tr>
+                <tr class="is-reserve">
+                  <th scope="row" colspan="2">{{ v.reserve.percent }} percent {{ campaign.reserve_label }}<span class="note">{{ campaign.reserve_note }}</span></th>
+                  <td class="num">{{ v.reserve.fcfa_text }}<span class="usd-inline">{{ v.reserve.usd_text }}</span></td>
+                  <td class="num usd">{{ v.reserve.usd_text }}</td>
+                </tr>
+{%- if v.vat %}
+                <tr class="is-vat">
+                  <th scope="row" colspan="2" aria-describedby="foundation-vat-note">{{ campaign.vat_label }} ({{ v.vat.percent }}%)*</th>
+                  <td class="num">{{ v.vat.fcfa_text }}<span class="usd-inline">{{ v.vat.usd_text }}</span></td>
+                  <td class="num usd">{{ v.vat.usd_text }}</td>
+                </tr>
+{%- endif %}
+              </tbody>
+              <tfoot>
+                <tr class="is-total">
+                  <th scope="row" colspan="2">{{ v.total_label }}</th>
+                  <td class="num">{{ v.total.fcfa_text }}<span class="usd-inline">{{ v.total.usd_text }}</span></td>
+                  <td class="num usd">{{ v.total.usd_text }}</td>
+                </tr>
+              </tfoot>
+            </table>
+            <div class="est-notes">
+{%- if v.vat %}
+              <p class="foundation-fine foundation-vat-note" id="foundation-vat-note"{% if v.vat_note_unconfirmed %} data-unconfirmed="vat-note"{% endif %}>{{ v.vat_note }}</p>
+{%- endif %}
+{%- if campaign.construction_note %}
+              <p class="foundation-fine">{{ campaign.construction_note }}</p>
+{%- endif %}
+              <p class="foundation-fine">US dollar amounts are approximate, converted at about {{ v.rate_text }} FCFA per US dollar and {% if v.step_text == "$1" %}shown to the nearest dollar{% else %}rounded to the nearest {{ v.step_text }}{% endif %}. The FCFA amounts are the budget.</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+  </section>

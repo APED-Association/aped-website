@@ -1,0 +1,17 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- apedassociation.org is one page whose sections open by link (#about, #donate and so on),
+     so the sitemap lists only real web addresses: the home page, each news article, and any
+     page APED adds in the editor. Pages marked "not live" are left out. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://apedassociation.org/</loc></url>
+{%- for url in newsArticles %}
+  <url><loc>https://apedassociation.org{{ url }}</loc></url>
+{%- endfor %}
+{%- for p in collections.extraPages %}{% if p.url %}
+  <url><loc>https://apedassociation.org{{ p.url }}</loc></url>
+{%- endif %}{% endfor %}
+</urlset>

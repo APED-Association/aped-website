@@ -1,0 +1,231 @@
+<style>
+  /* ─── LAYING THE FOUNDATION (campaign section on the Donate page) ───
+     Uses the site's own tokens and its flagship-project look (blue band, real photo,
+     white progress card overlapping the photo, yellow small label). Every rule is scoped
+     under .foundation. Playfair Display defaults to old-style figures, which turn a 0 into
+     an "o", so every number here uses lining figures. */
+  section.foundation { padding: 0 !important; scroll-margin-top: 70px; font-variant-numeric: lining-nums; }
+  .foundation-inner { max-width: 1280px; margin: 0 auto; }
+  /* The goal card's button lands here, clear of the sticky nav. */
+  #choose-your-gift { scroll-margin-top: 96px; }
+
+  /* ── Band 1: blue ── */
+  .foundation-band { background: var(--blue); padding: 104px 80px 96px; position: relative; overflow: hidden; }
+  .foundation-band::before { content: ""; position: absolute; inset: 0; opacity: 0.04; background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; }
+  .foundation-top { position: relative; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 80px; align-items: center; }
+  .foundation-copy .section-label { color: var(--yellow); }
+  .foundation-title { font-family: var(--serif); font-size: clamp(40px, 4.4vw, 60px); line-height: 1.06; color: var(--white); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 28px; }
+  .foundation-promise { font-family: var(--serif); font-size: 23px; line-height: 1.45; color: var(--white); margin-bottom: 22px; max-width: 30ch; }
+  .foundation-intro { font-size: 16px; line-height: 1.8; color: rgba(255,255,255,0.68); max-width: 52ch; }
+
+  .foundation-visual { position: relative; margin-bottom: 40px; }
+  .foundation-photo { display: block; width: 100%; aspect-ratio: 1 / 1; max-height: 640px; object-fit: cover; object-position: 50% 58%; border-radius: var(--radius-lg); }
+
+  /* The goal card: the focal point. Sits over the photo's lower corner, like the Home spotlight card. */
+  .foundation-card { position: absolute; left: -56px; bottom: -48px; width: min(400px, 74%); background: var(--white); border-radius: var(--radius-lg); padding: 26px 28px 28px; box-shadow: 0 18px 48px rgba(10,24,48,0.32); }
+  .foundation-card-kicker { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13px; font-weight: 600; color: var(--gray-500); letter-spacing: 0.2px; margin-bottom: 6px; }
+  .foundation-card-kicker span { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); white-space: nowrap; }
+  .foundation-raised { font-size: 15px; color: var(--gray-500); margin-bottom: 14px; }
+  .foundation-raised strong { font-family: var(--serif); font-size: 52px; line-height: 1; color: var(--blue); font-weight: 700; margin-right: 6px; }
+  .foundation-bar { height: 8px; background: var(--gray-100); border-radius: 100px; overflow: hidden; }
+  .foundation-bar span { display: block; height: 100%; background: var(--teal); border-radius: 100px; }
+  .foundation-goal { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-top: 10px; font-size: 13px; color: var(--gray-500); }
+  .foundation-goal strong { font-size: 17px; font-weight: 700; color: var(--blue); margin-left: 4px; }
+  .foundation-basis { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--gray-100); font-size: 13px; line-height: 1.55; color: var(--gray-700); }
+  .foundation-basis + .foundation-basis { margin-top: 6px; padding-top: 0; border-top: none; }
+  .foundation-cta { display: flex; justify-content: center; align-items: center; gap: 10px; width: 100%; margin-top: 20px; font-size: 16px; font-weight: 700; padding: 15px 24px; }
+
+  /* The stage ladder: seven lots in building order, Lot 1 lit. */
+  .foundation-ladder { position: relative; margin-top: 112px; padding-top: 36px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .foundation-ladder-title { font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 24px; }
+  .foundation-stages { list-style: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; }
+  .foundation-stages li { display: flex; flex-direction: column; padding-right: 14px; }
+  .stage-bar { display: block; height: 6px; border-radius: 100px; background: rgba(255,255,255,0.14); margin-bottom: 18px; }
+  .stage-num { font-family: var(--serif); font-size: 30px; line-height: 1; font-weight: 700; color: rgba(255,255,255,0.32); margin-bottom: 10px; }
+  .stage-name { font-size: 14px; line-height: 1.45; color: rgba(255,255,255,0.72); }
+  .stage-status { margin-top: 10px; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.38); }
+  .foundation-stages li.is-now .stage-bar { background: var(--yellow); }
+  .foundation-stages li.is-now .stage-num { color: var(--yellow); }
+  .foundation-stages li.is-now .stage-name { color: var(--white); font-weight: 600; }
+  .foundation-stages li.is-now .stage-status { color: var(--yellow); }
+  /* Desktop: the Now / Next status sits above the bar, so it lines up across all seven. */
+  @media (min-width: 901px) {
+    .foundation-stages .stage-status { order: -1; margin: 0 0 10px; }
+  }
+
+  /* ── Band 1b: white. The building, from APED's own drawings. ── */
+  .foundation-building { background: var(--white); padding: 104px 80px 112px; }
+  .building-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); column-gap: 80px; align-items: end; margin-bottom: 48px; }
+  .building-head .section-label { grid-column: 1 / -1; color: var(--teal); }
+  .building-title { font-family: var(--serif); font-size: clamp(34px, 3.4vw, 46px); line-height: 1.1; color: var(--blue); font-weight: 700; letter-spacing: -0.3px; }
+  .building-intro { font-size: 16px; line-height: 1.8; color: var(--gray-700); max-width: 56ch; }
+  .building-render { margin: 0; }
+  .building-render img { display: block; width: 100%; aspect-ratio: 1440 / 700; object-fit: cover; object-position: 50% 40%; border-radius: var(--radius-lg); }
+  .building-render figcaption, .building-plan figcaption p { font-size: 13px; line-height: 1.6; color: var(--gray-500); }
+  .building-render figcaption { margin-top: 14px; }
+
+  /* The two drawings: the floor plan (what is inside) and the foundation plan (this campaign). */
+  .building-plans { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; margin-top: 72px; align-items: start; }
+  .building-plan { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .building-sheet { background: var(--off-white); border: 1px solid rgba(26,58,107,0.10); border-radius: var(--radius-lg); padding: 20px; }
+  .building-sheet img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; }
+  .building-plan h3 { font-family: var(--serif); font-size: 26px; line-height: 1.2; color: var(--blue); font-weight: 700; margin-bottom: 18px; }
+  .building-rooms { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px 28px; margin: 0; }
+  .building-rooms div { padding-left: 16px; border-left: 3px solid var(--teal-light); }
+  .building-rooms dt { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--teal); margin-bottom: 4px; }
+  .building-rooms dd { margin: 0; font-size: 15px; line-height: 1.6; color: var(--gray-700); }
+  .building-plan.is-campaign .building-sheet { border: 2px solid var(--teal); }
+  .building-plan.is-campaign h3 { margin-bottom: 10px; }
+  .building-plan.is-campaign p { font-size: 15px; color: var(--gray-700); max-width: 40ch; }
+  .building-plan .tag { display: inline-block; margin-bottom: 12px; padding: 1px 9px; border: 1px solid var(--teal); border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--teal); }
+
+  /* ── Band 2: cream. Lay the First Block, and the estimate folded away. ── */
+  .foundation-detail { background: var(--off-white); padding: 72px 80px; }
+  .foundation-detail-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 72px; align-items: start; }
+  .foundation-block h3 { font-family: var(--serif); font-size: 30px; line-height: 1.2; color: var(--blue); font-weight: 700; margin-bottom: 14px; }
+  .foundation-block { position: sticky; top: 100px; }
+  .foundation-block p { font-size: 16px; line-height: 1.75; color: var(--gray-700); max-width: 44ch; }
+
+  .foundation-estimate { background: var(--white); border: 1px solid rgba(26,58,107,0.10); border-radius: var(--radius-lg); }
+  .foundation-estimate summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: minmax(0, 1fr) auto 40px; gap: 24px; align-items: center; padding: 24px 24px 24px 28px; border-radius: var(--radius-lg); }
+  .foundation-estimate summary::-webkit-details-marker { display: none; }
+  .foundation-estimate summary:focus-visible { outline: 2px solid var(--blue-mid); outline-offset: 3px; }
+  .est-head { display: flex; flex-direction: column; gap: 4px; }
+  .est-title { font-family: var(--serif); font-size: 21px; font-weight: 700; color: var(--blue); line-height: 1.25; }
+  .est-sub { font-size: 14px; color: var(--gray-500); }
+  .est-total { display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 2px; font-variant-numeric: lining-nums tabular-nums; }
+  .est-total-label { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--gray-500); }
+  .est-total strong { font-size: 17px; font-weight: 700; color: var(--blue); white-space: nowrap; }
+  .est-total-usd { font-size: 13px; color: var(--gray-500); }
+  .est-chev { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(26,58,107,0.2); position: relative; transition: background .2s, border-color .2s; }
+  .est-chev::before { content: ""; position: absolute; left: 50%; top: 50%; width: 8px; height: 8px; border-right: 1.5px solid var(--blue); border-bottom: 1.5px solid var(--blue); transform: translate(-50%, -70%) rotate(45deg); transition: transform .25s ease; }
+  .foundation-estimate summary:hover .est-chev { background: var(--blue-light); border-color: transparent; }
+  .foundation-estimate[open] .est-chev::before { transform: translate(-50%, -30%) rotate(-135deg); }
+  .foundation-estimate[open] summary { border-bottom: 1px solid rgba(26,58,107,0.10); border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+  .est-body { padding: 8px 0 24px; }
+  .est-intro { padding: 16px 28px 8px; font-size: 14px; line-height: 1.7; color: var(--gray-700); }
+  .est-notes { padding: 0 28px; }
+
+  /* The table, shown only once the estimate is opened. */
+  .foundation-table { width: 100%; border-collapse: collapse; font-variant-numeric: lining-nums tabular-nums; }
+  .foundation-table th, .foundation-table td { padding: 14px 20px; text-align: left; font-weight: 400; vertical-align: baseline; border-bottom: 1px solid rgba(26,58,107,0.08); font-size: 15px; color: var(--gray-700); }
+  .foundation-table th:first-child, .foundation-table td:first-child { padding-left: 28px; }
+  .foundation-table th:last-child, .foundation-table td:last-child { padding-right: 28px; }
+  .foundation-table thead th { font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray-500); padding-top: 14px; padding-bottom: 10px; }
+  .foundation-table .num { text-align: right; white-space: nowrap; }
+  .foundation-table .lot { width: 64px; font-family: var(--serif); font-size: 17px; color: var(--gray-500); }
+  .foundation-table thead .lot { font-family: var(--sans); font-size: 11px; }
+  .foundation-table .works { color: var(--blue); font-weight: 500; }
+  .foundation-table td.num { color: var(--blue); font-weight: 500; }
+  .foundation-table td.usd { color: var(--gray-500); font-weight: 400; min-width: 104px; }
+  .foundation-table .usd-inline { display: none; }
+
+  .foundation-table .tag { display: inline-block; margin-left: 8px; padding: 1px 9px; border: 1px solid var(--teal); border-radius: 100px; font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--teal); background: var(--white); white-space: nowrap; vertical-align: 2px; }
+  .foundation-table tr.is-campaign th, .foundation-table tr.is-campaign td { background: var(--teal-light); }
+  .foundation-table tr.is-campaign .lot { color: var(--teal); }
+
+  .foundation-table tr.is-subtotal th, .foundation-table tr.is-subtotal td { border-top: 1.5px solid rgba(26,58,107,0.3); font-weight: 600; color: var(--blue); }
+  .foundation-table tr.is-subtotal td.usd { color: var(--gray-500); font-weight: 500; }
+
+  .foundation-table tr.is-reserve th, .foundation-table tr.is-reserve td { background: rgba(245,194,0,0.14); }
+  .foundation-table tr.is-reserve th { box-shadow: inset 4px 0 0 var(--yellow); font-weight: 600; color: var(--blue); }
+  .foundation-table tr.is-reserve .note { display: block; margin-top: 2px; font-size: 13px; font-weight: 400; color: var(--gray-700); }
+
+  /* VAT: its own line, calmer than the reserve (no yellow bar) so the two never read as one thing. */
+  .foundation-table tr.is-vat th, .foundation-table tr.is-vat td { background: rgba(43,91,168,0.07); }
+  .foundation-table tr.is-vat th { font-weight: 600; color: var(--blue); }
+
+  .foundation-table tfoot th, .foundation-table tfoot td { background: var(--blue); color: var(--white); border-bottom: none; padding-top: 18px; padding-bottom: 18px; }
+  .foundation-table tfoot th { font-family: var(--serif); font-size: 18px; font-weight: 700; }
+  .foundation-table tfoot td.num { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--white); }
+  .foundation-table tfoot td.usd { font-family: var(--sans); font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.75); }
+
+  .foundation-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .foundation-fine { margin-top: 14px; font-size: 13px; color: var(--gray-500); line-height: 1.6; }
+  .foundation-fine + .foundation-fine { margin-top: 6px; }
+  .foundation-fine.foundation-vat-note { color: var(--gray-700); }
+
+  @media (max-width: 1100px) {
+    .foundation-stages { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 32px; }
+    /* The card hangs off the photo's bottom edge instead of covering it. */
+    .foundation-visual { margin-bottom: 0; }
+    .foundation-card { position: relative; left: auto; bottom: auto; width: auto; margin: -64px 24px 0; }
+    .foundation-ladder { margin-top: 72px; }
+    .foundation-detail-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .foundation-block { position: static; }
+    .building-plans { gap: 40px; }
+  }
+
+  @media (max-width: 900px) {
+    .foundation-building { padding: 64px 24px 72px; }
+    .building-head { grid-template-columns: minmax(0, 1fr); row-gap: 16px; margin-bottom: 32px; }
+    .building-render img { aspect-ratio: 4 / 3; object-position: 55% 50%; }
+    .building-plans { margin-top: 48px; gap: 48px; }
+    .building-plans { grid-template-columns: minmax(0, 1fr); }
+    .building-sheet { padding: 12px; }
+    .foundation-band { padding: 64px 24px 56px; }
+    .foundation-top { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+    .foundation-promise { font-size: 21px; max-width: none; }
+    .foundation-visual { margin-bottom: 0; }
+    .foundation-photo { aspect-ratio: 4 / 3; }
+    /* The card leaves the photo and overlaps only its bottom edge, so it never covers the ground. */
+    .foundation-card { margin: -56px 16px 0; }
+    .foundation-ladder { margin-top: 56px; padding-top: 28px; }
+    .foundation-ladder-title { margin-bottom: 8px; }
+    /* A vertical ladder: one row per lot, the lit rail on the left. */
+    .foundation-stages { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .foundation-stages li { display: grid; grid-template-columns: 4px 44px minmax(0, 1fr) auto; column-gap: 14px; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .foundation-stages li:last-child { border-bottom: none; }
+    .stage-bar { width: 4px; height: 100%; min-height: 28px; margin: 0; }
+    .stage-num { font-size: 24px; margin: 0; }
+    .stage-name { font-size: 15px; }
+    .stage-status { margin: 0; }
+    .foundation-detail { padding: 56px 24px 8px; }
+    .foundation-detail-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .foundation-block { position: static; }
+    .foundation-block h3 { font-size: 26px; }
+  }
+
+  @media (max-width: 600px) {
+    .foundation-band { padding: 56px 20px 48px; }
+    .foundation-building { padding: 56px 20px 64px; }
+    .building-title { font-size: 32px; }
+    .building-plan h3 { font-size: 23px; }
+    .building-rooms { grid-template-columns: minmax(0, 1fr); }
+    .foundation-title { font-size: 38px; margin-bottom: 22px; }
+    .foundation-promise { font-size: 19px; }
+    .foundation-intro { font-size: 15px; }
+    .foundation-card { margin: -48px 10px 0; padding: 22px 20px 22px; }
+    .foundation-raised strong { font-size: 44px; }
+    .foundation-detail { padding: 48px 20px 0; }
+
+    .foundation-estimate summary { grid-template-columns: minmax(0, 1fr) 36px; gap: 14px 12px; padding: 20px 16px 20px 20px; }
+    .est-head { grid-column: 1; grid-row: 1; }
+    .est-chev { grid-column: 2; grid-row: 1; width: 36px; height: 36px; }
+    .est-total { grid-column: 1 / -1; grid-row: 2; align-items: flex-start; text-align: left; padding-top: 12px; border-top: 1px solid rgba(26,58,107,0.08); }
+    .est-title { font-size: 19px; }
+    .est-intro { padding: 14px 16px 6px; }
+    .est-notes { padding: 0 16px; }
+
+    /* Three columns on a phone: the US dollar amount moves under its FCFA amount. */
+    .foundation-table th, .foundation-table td { padding: 12px 8px; font-size: 14px; }
+    .foundation-table th:first-child, .foundation-table td:first-child { padding-left: 16px; }
+    .foundation-table th:last-child, .foundation-table td:last-child { padding-right: 16px; }
+    .foundation-table thead th { font-size: 10px; letter-spacing: 1px; padding-top: 12px; padding-bottom: 8px; }
+    .foundation-table .lot { width: 34px; font-size: 16px; padding-right: 2px; }
+    .foundation-table td.usd, .foundation-table th.usd-col { display: none; }
+    .foundation-table td.num, .foundation-table th.num-main { padding-right: 16px; }
+    .foundation-table thead th.num-main::after { content: " / US$"; }
+    .foundation-table .usd-inline { display: block; margin-top: 1px; font-size: 12px; font-weight: 400; color: var(--gray-500); }
+    .foundation-table tr.is-subtotal .usd-inline { font-weight: 500; }
+    .foundation-table tfoot .usd-inline { font-family: var(--sans); font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.75); }
+    .foundation-table tr.is-reserve .note { font-size: 12px; }
+    .foundation-table .tag { display: block; width: fit-content; margin: 6px 0 0; font-size: 10px; padding: 1px 8px; }
+    .foundation-table tfoot th { font-size: 16px; }
+    .foundation-table tfoot td.num { font-size: 17px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .est-chev, .est-chev::before { transition: none; }
+  }
+</style>
